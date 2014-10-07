@@ -22,23 +22,23 @@
 # instance fields
 .field private final basePkg:Ljava/lang/String;
 
-.field private final id:I
+.field public final id:I
 
-.field private final initialPid:I
+.field public final initialPid:I
 
-.field private final notification:Landroid/app/Notification;
+.field public final notification:Landroid/app/Notification;
 
-.field private final pkg:Ljava/lang/String;
+.field public final pkg:Ljava/lang/String;
 
 .field private final postTime:J
 
-.field private final score:I
+.field public final score:I
 
-.field private final tag:Ljava/lang/String;
+.field public final tag:Ljava/lang/String;
 
-.field private final uid:I
+.field public final uid:I
 
-.field private final user:Landroid/os/UserHandle;
+.field public final user:Landroid/os/UserHandle;
 
 
 # direct methods

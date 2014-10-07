@@ -337,7 +337,7 @@
 
     move-object/from16 v1, v40
 
-    invoke-direct {v7, v3, v5, v0, v1}, Lcom/android/server/am/AppErrorDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
+    invoke-direct {v7, v3, v5, v0, v1}, Lcom/android/server/am/BaiduAppErrorDialog;-><init>(Landroid/content/Context;Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/AppErrorResult;Lcom/android/server/am/ProcessRecord;)V
 
     .line 986
     .local v7, d:Landroid/app/Dialog;
@@ -580,7 +580,7 @@
     :goto_3
     move-object/from16 v10, v40
 
-    invoke-direct/range {v7 .. v12}, Lcom/android/server/am/AppNotRespondingDialog;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Z)V
+    invoke-direct/range {v7 .. v12}, Lcom/android/server/am/BaiduAppNotRespondingDialog;-><init>(Lcom/android/server/am/ActivityManagerService;Landroid/content/Context;Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ActivityRecord;Z)V
 
     .line 1022
     .restart local v7       #d:Landroid/app/Dialog;
@@ -2009,7 +2009,7 @@
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040420
+    const v4, #android:string@heavy_weight_notification#t
 
     const/4 v5, 0x1
 
@@ -2043,7 +2043,7 @@
 
     .line 1230
     .local v35, notification:Landroid/app/Notification;
-    const v3, 0x1080551
+    const v3, #android:drawable@stat_sys_adb#t
 
     move-object/from16 v0, v35
 
@@ -2098,7 +2098,7 @@
 
     iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040421
+    const v4, #android:string@heavy_weight_notification_detail#t
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -2160,7 +2160,7 @@
 
     const/4 v15, 0x0
 
-    const v16, 0x1040420
+    const v16, #android:string@heavy_weight_notification#t
 
     move-object/from16 v0, v46
 
@@ -2240,7 +2240,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x1040420
+    const v5, #android:string@heavy_weight_notification#t
 
     move-object/from16 v0, p1
 

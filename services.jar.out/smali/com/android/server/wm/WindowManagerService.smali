@@ -1135,7 +1135,7 @@
 
     move-result-object v8
 
-    const v9, 0x111000d
+    const v9, #android:bool@config_sf_limitedAlpha#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -6388,7 +6388,7 @@
 
     iget-object v2, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
 
-    const v8, 0x10a0073
+    const v8, #android:anim@window_move_from_decor#t
 
     invoke-static {v2, v8}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -28713,7 +28713,7 @@
 
     move-result-object v15
 
-    const v17, 0x111002b
+    const v17, #android:bool@config_enableWallpaperService#t
 
     move/from16 v0, v17
 
@@ -43849,6 +43849,16 @@
     invoke-virtual {p0, p1, v0, p3}, Lcom/android/server/wm/WindowManagerService;->windowForClientLocked(Lcom/android/server/wm/Session;Landroid/os/IBinder;Z)Lcom/android/server/wm/WindowState;
 
     move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$iget-mDisplayContents-5331a6(Lcom/android/server/wm/WindowManagerService;)Landroid/util/SparseArray;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mDisplayContents:Landroid/util/SparseArray;
 
     return-object v0
 .end method

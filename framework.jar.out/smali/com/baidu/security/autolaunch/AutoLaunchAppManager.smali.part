@@ -1,0 +1,53 @@
+.method private getInstalledApplications(I)Ljava/util/List;
+    .locals 5
+    .parameter "flags"
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ApplicationInfo;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 420
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
+
+    move-result v2
+
+    .line 423
+    .local v2, userId:I
+    :try_start_0
+    iget-object v3, p0, Lcom/baidu/security/autolaunch/AutoLaunchAppManager;->mPm:Landroid/content/pm/IPackageManager;
+
+    invoke-interface {v3, p1, v2}, Landroid/content/pm/IPackageManager;->getInstalledApplications(II)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v1
+
+    .line 424
+    .local v1, slice:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<Landroid/content/pm/ApplicationInfo;>;"
+    invoke-virtual {v1}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v3
+
+    return-object v3
+
+    .line 425
+    .end local v1           #slice:Landroid/content/pm/ParceledListSlice;,"Landroid/content/pm/ParceledListSlice<Landroid/content/pm/ApplicationInfo;>;"
+    :catch_0
+    move-exception v0
+
+    .line 426
+    .local v0, e:Landroid/os/RemoteException;
+    new-instance v3, Ljava/lang/RuntimeException;
+
+    const-string v4, "Package manager has died"
+
+    invoke-direct {v3, v4, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v3
+.end method

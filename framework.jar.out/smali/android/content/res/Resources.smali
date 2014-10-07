@@ -22,7 +22,7 @@
 .field private static final ID_OTHER:I = 0x1000004
 
 #the value of this static final field might be set in the static constructor
-.field private static final LAYOUT_DIR_CONFIG:I = 0x0
+.field static final LAYOUT_DIR_CONFIG:I = 0x0
 
 .field static final TAG:Ljava/lang/String; = "Resources"
 
@@ -171,15 +171,15 @@
     .locals 8
 
     .prologue
-    const v7, 0x10302e8
+    const v7, #android:style@Theme.Holo.Dialog.TY#t
 
-    const v6, 0x10302e0
+    const v6, #android:style@Theme.Holo.Dialog.NoActionBar.TY#t
 
-    const v5, 0x10302de
+    const v5, #android:style@Theme.Holo.NoActionBar.TY#t
 
-    const v4, 0x103006f
+    const v4, #android:style@Theme.Holo.Dialog#t
 
-    const v3, 0x10302dd
+    const v3, #android:style@Theme.Holo.TY#t
 
     .line 98
     new-instance v0, Ljava/lang/Object;
@@ -217,7 +217,7 @@
     .line 145
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030128
+    const v1, #android:style@Theme.DeviceDefault#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -232,7 +232,7 @@
     .line 146
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x103006b
+    const v1, #android:style@Theme.Holo#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -247,7 +247,7 @@
     .line 147
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x103006e
+    const v1, #android:style@Theme.Holo.Light#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -262,7 +262,7 @@
     .line 148
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x103006c
+    const v1, #android:style@Theme.Holo.NoActionBar#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -277,7 +277,7 @@
     .line 149
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030137
+    const v1, #android:style@Theme.DeviceDefault.DialogWhenLarge.NoActionBar#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -292,7 +292,7 @@
     .line 150
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030130
+    const v1, #android:style@Theme.DeviceDefault.Dialog.NoActionBar#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -307,13 +307,13 @@
     .line 152
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030077
+    const v1, #android:style@Theme.Holo.DialogWhenLarge#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const v2, 0x10302df
+    const v2, #android:style@Theme.Holo.DialogWhenLarge.TY#t
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -324,7 +324,7 @@
     .line 153
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030071
+    const v1, #android:style@Theme.Holo.Dialog.NoActionBar#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -339,13 +339,13 @@
     .line 154
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x103007b
+    const v1, #android:style@Theme.Holo.Panel#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const v2, 0x10302e1
+    const v2, #android:style@Theme.Holo.Panel.TY#t
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -369,13 +369,13 @@
     .line 156
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x103007e
+    const v1, #android:style@Theme.Holo.Wallpaper.NoTitleBar#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const v2, 0x10302e4
+    const v2, #android:style@Theme.Holo.Wallpaper.NoTitleBar.TY#t
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -386,13 +386,13 @@
     .line 157
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030010
+    const v1, #android:style@Theme.Translucent.NoTitleBar#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const v2, 0x10302e5
+    const v2, #android:style@Theme.Translucent.NoTitleBar.TY#t
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -403,13 +403,13 @@
     .line 158
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030006
+    const v1, #android:style@Theme.NoTitleBar#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const v2, 0x10302e6
+    const v2, #android:style@Theme.NoTitleBar.TY#t
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -433,13 +433,13 @@
     .line 161
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030311
+    const v1, #android:style@Theme.Holo.Dialog.Alert#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const v2, 0x1030323
+    const v2, #android:style@Theme.Holo.Dialog.Alert.TY#t
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -450,13 +450,13 @@
     .line 162
     sget-object v0, Landroid/content/res/Resources;->TYThemeStyle:Ljava/util/HashMap;
 
-    const v1, 0x1030301
+    const v1, #android:style@Theme.Dialog.Alert#t
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const v2, 0x1030324
+    const v2, #android:style@Theme.Dialog.Alert.TY#t
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -505,7 +505,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method constructor <init>()V
     .locals 3
 
     .prologue
@@ -1142,7 +1142,7 @@
     throw v2
 .end method
 
-.method private getCachedDrawable(Landroid/util/LongSparseArray;J)Landroid/graphics/drawable/Drawable;
+.method getCachedDrawable(Landroid/util/LongSparseArray;J)Landroid/graphics/drawable/Drawable;
     .locals 4
     .parameter
     .parameter "key"
@@ -1379,36 +1379,29 @@
     .locals 3
 
     .prologue
-    .line 249
     sget-object v2, Landroid/content/res/Resources;->sSync:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 250
     :try_start_0
     sget-object v0, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
 
-    .line 251
     .local v0, ret:Landroid/content/res/Resources;
     if-nez v0, :cond_0
 
-    .line 252
-    new-instance v0, Landroid/content/res/Resources;
+    new-instance v0, Landroid/content/res/BaiduResources;
 
     .end local v0           #ret:Landroid/content/res/Resources;
-    invoke-direct {v0}, Landroid/content/res/Resources;-><init>()V
+    invoke-direct {v0}, Landroid/content/res/BaiduResources;-><init>()V
 
-    .line 253
     .restart local v0       #ret:Landroid/content/res/Resources;
     sput-object v0, Landroid/content/res/Resources;->mSystem:Landroid/content/res/Resources;
 
-    .line 256
     :cond_0
     monitor-exit v2
 
     return-object v0
 
-    .line 257
     :catchall_0
     move-exception v1
 
@@ -1446,12 +1439,11 @@
     .parameter "targetSdkVersion"
 
     .prologue
-    .line 173
-    const v0, 0x1030005
+    const v0, #android:style@Theme#t
 
-    const v1, 0x103006b
+    const v1, #android:style@Theme.Holo#t
 
-    const v2, 0x1030128
+    const v2, #android:style@Theme.DeviceDefault#t
 
     invoke-static {p0, p1, v0, v1, v2}, Landroid/content/res/Resources;->selectSystemTheme(IIIII)I
 
@@ -1603,19 +1595,16 @@
     .locals 9
 
     .prologue
-    .line 2530
     iget-object v7, p0, Landroid/content/res/Resources;->mThemeIconRelationTable:Ljava/util/HashMap;
 
     invoke-virtual {v7}, Ljava/util/HashMap;->clear()V
 
-    .line 2531
-    const v7, 0x107003e
+    const v7, #android:array@theme_icon_relation_table#t
 
     invoke-virtual {p0, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
     move-result-object v4
 
-    .line 2532
     .local v4, iconItems:[Ljava/lang/String;
     move-object v0, v4
 
@@ -1689,7 +1678,7 @@
     goto :goto_1
 .end method
 
-.method private verifyPreloadConfig(IIILjava/lang/String;)Z
+.method verifyPreloadConfig(IIILjava/lang/String;)Z
     .locals 5
     .parameter "changingConfigurations"
     .parameter "allowVarying"
@@ -4388,7 +4377,7 @@
 
     const-string v11, "color"
 
-    invoke-direct {p0, v8, v9, v10, v11}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
+    invoke-virtual {p0, v8, v9, v10, v11}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
 
     move-result v8
 
@@ -4548,7 +4537,7 @@
 
     const-string v11, "color"
 
-    invoke-direct {p0, v8, v9, v10, v11}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
+    invoke-virtual {p0, v8, v9, v10, v11}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
 
     move-result v8
 
@@ -7810,4 +7799,189 @@
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     throw v2
+.end method
+
+.method static getSpreloadedcolordrawables()Landroid/util/LongSparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Landroid/graphics/drawable/Drawable$ConstantState;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    sget-object v0, Landroid/content/res/Resources;->sPreloadedColorDrawables:Landroid/util/LongSparseArray;
+
+    return-object v0
+.end method
+
+.method static getSpreloadedcolorstatelists()Landroid/util/LongSparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Landroid/content/res/ColorStateList;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    sget-object v0, Landroid/content/res/Resources;->sPreloadedColorStateLists:Landroid/util/LongSparseArray;
+
+    return-object v0
+.end method
+
+.method getCachedColorStateListBaidu(J)Landroid/content/res/ColorStateList;
+    .locals 1
+    .parameter "key"
+
+    .prologue
+    invoke-direct {p0, p1, p2}, Landroid/content/res/Resources;->getCachedColorStateList(J)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method getCachedDrawableBaidu(Landroid/util/LongSparseArray;J)Landroid/graphics/drawable/Drawable;
+    .locals 1
+    .parameter
+    .parameter "key"
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/graphics/drawable/Drawable$ConstantState;",
+            ">;>;J)",
+            "Landroid/graphics/drawable/Drawable;"
+        }
+    .end annotation
+
+    .prologue
+    .local p1, drawableCache:Landroid/util/LongSparseArray;,"Landroid/util/LongSparseArray<Ljava/lang/ref/WeakReference<Landroid/graphics/drawable/Drawable$ConstantState;>;>;"
+    invoke-virtual {p0, p1, p2, p3}, Landroid/content/res/Resources;->getCachedDrawable(Landroid/util/LongSparseArray;J)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getIconDrawable(I)Landroid/graphics/drawable/Drawable;
+    .locals 1
+    .parameter "id"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/content/res/Resources$NotFoundException;
+        }
+    .end annotation
+
+    .prologue
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method getmColorDrawableCache()Landroid/util/LongSparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/graphics/drawable/Drawable$ConstantState;",
+            ">;>;"
+        }
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Landroid/content/res/Resources;->mColorDrawableCache:Landroid/util/LongSparseArray;
+
+    return-object v0
+.end method
+
+.method getmColorStateListCache()Landroid/util/LongSparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/content/res/ColorStateList;",
+            ">;>;"
+        }
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Landroid/content/res/Resources;->mColorStateListCache:Landroid/util/LongSparseArray;
+
+    return-object v0
+.end method
+
+.method getmConfiguration()Landroid/content/res/Configuration;
+    .locals 1
+
+    .prologue
+    iget-object v0, p0, Landroid/content/res/Resources;->mConfiguration:Landroid/content/res/Configuration;
+
+    return-object v0
+.end method
+
+.method getmDrawableCache()Landroid/util/LongSparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Ljava/lang/ref/WeakReference",
+            "<",
+            "Landroid/graphics/drawable/Drawable$ConstantState;",
+            ">;>;"
+        }
+    .end annotation
+
+    .prologue
+    iget-object v0, p0, Landroid/content/res/Resources;->mDrawableCache:Landroid/util/LongSparseArray;
+
+    return-object v0
+.end method
+
+.method getsPreloadedDrawables()[Landroid/util/LongSparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()[",
+            "Landroid/util/LongSparseArray",
+            "<",
+            "Landroid/graphics/drawable/Drawable$ConstantState;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    sget-object v0, Landroid/content/res/Resources;->sPreloadedDrawables:[Landroid/util/LongSparseArray;
+
+    return-object v0
+.end method
+
+.method ismPreloading()Z
+    .locals 1
+
+    .prologue
+    iget-boolean v0, p0, Landroid/content/res/Resources;->mPreloading:Z
+
+    return v0
 .end method

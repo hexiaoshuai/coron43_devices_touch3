@@ -37,13 +37,13 @@
 
 .field private static final EMS:I = 0x1
 
-.field static final ID_COPY:I = 0x1020021
+.field static final ID_COPY:I = #android:id@copy#t
 
-.field static final ID_CUT:I = 0x1020020
+.field static final ID_CUT:I = #android:id@cut#t
 
-.field static final ID_PASTE:I = 0x1020022
+.field static final ID_PASTE:I = #android:id@paste#t
 
-.field static final ID_SELECT_ALL:I = 0x102001f
+.field static final ID_SELECT_ALL:I = #android:id@selectAll#t
 
 .field static LAST_CUT_OR_COPY_TIME:J = 0x0L
 
@@ -280,7 +280,7 @@
     .line 273
     new-array v1, v4, [I
 
-    const v2, 0x101034d
+    const v2, #android:attr@state_multiline#t
 
     aput v2, v1, v3
 
@@ -330,12 +330,10 @@
     .parameter "attrs"
 
     .prologue
-    .line 614
-    const v0, 0x1010084
+    const v0, #android:attr@textViewStyle#t
 
     invoke-direct {p0, p1, p2, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 615
     return-void
 .end method
 
@@ -2276,6 +2274,8 @@
 
     move-result v62
 
+    const v62, #drawable@yi_text_select_handle_left#t
+
     move/from16 v0, v62
 
     move-object/from16 v1, p0
@@ -2294,6 +2294,8 @@
 
     move-result v62
 
+    const v62, #drawable@yi_text_select_handle_right#t
+
     move/from16 v0, v62
 
     move-object/from16 v1, p0
@@ -2311,6 +2313,8 @@
     invoke-virtual {v5, v9, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v62
+
+    const v62, #drawable@yi_text_select_handle_middle#t
 
     move/from16 v0, v62
 
@@ -3941,7 +3945,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Landroid/widget/TextView;)Landroid/content/Context;
+.method static synthetic access$1100(Landroid/widget/TextView;)Landroid/content/Context;
     .locals 1
     .parameter "x0"
 
@@ -17883,23 +17887,19 @@
     :goto_1
     if-ge v1, v2, :cond_2
 
-    .line 4887
     aget v4, v0, v1
 
-    const v5, 0x10100a7
+    const v5, #android:attr@state_pressed#t
 
     if-ne v4, v5, :cond_1
 
-    .line 4888
     add-int/lit8 v4, v2, -0x1
 
     new-array v3, v4, [I
 
-    .line 4889
     .local v3, nonPressedState:[I
     invoke-static {v0, v6, v3, v6, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 4890
     add-int/lit8 v4, v1, 0x1
 
     sub-int v5, v2, v1
@@ -20346,8 +20346,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 7870
-    const v1, 0x102001f
+    const v1, #android:id@selectAll#t
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
@@ -20363,8 +20362,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 7875
-    const v1, 0x1020020
+    const v1, #android:id@cut#t
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
@@ -20380,8 +20378,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 7880
-    const v1, 0x1020021
+    const v1, #android:id@copy#t
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
@@ -20397,8 +20394,7 @@
 
     if-eqz v1, :cond_0
 
-    .line 7885
-    const v1, 0x1020022
+    const v1, #android:id@paste#t
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
@@ -22621,7 +22617,7 @@
 
     .line 8217
     :pswitch_data_0
-    .packed-switch 0x102001f
+    .packed-switch #android:id@selectAll#t
         :pswitch_0
         :pswitch_2
         :pswitch_3
@@ -23026,8 +23022,7 @@
 
     if-eqz v3, :cond_0
 
-    .line 8090
-    const v3, 0x1020021
+    const v3, #android:id@copy#t
 
     invoke-virtual {p0, v3}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
@@ -23063,8 +23058,7 @@
 
     if-eqz v3, :cond_1
 
-    .line 8098
-    const v3, 0x1020022
+    const v3, #android:id@paste#t
 
     invoke-virtual {p0, v3}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
@@ -23100,8 +23094,7 @@
 
     if-eqz v3, :cond_2
 
-    .line 8106
-    const v3, 0x1020020
+    const v3, #android:id@cut#t
 
     invoke-virtual {p0, v3}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
@@ -25548,7 +25541,7 @@
 
     move-result-object v1
 
-    const v2, 0x108037d
+    const v2, #android:drawable@indicator_input_error#t
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -29112,4 +29105,24 @@
     .line 6908
     :cond_0
     return v0
+.end method
+
+.method static synthetic access$iget-mContext-3ebab7(Landroid/widget/TextView;)Landroid/content/Context;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$iget-mContext-3ebab7(Landroid/widget/TextView;)Landroid/content/Context;
+    .locals 1
+    .parameter "x0"
+
+    .prologue
+    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
+
+    return-object v0
 .end method

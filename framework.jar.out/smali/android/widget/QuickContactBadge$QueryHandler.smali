@@ -332,7 +332,7 @@
 
     move-result-object v11
 
-    const v12, 0x10405a1
+    const v12, #android:string@no_quick_contact#t
 
     const/4 v13, 0x0
 

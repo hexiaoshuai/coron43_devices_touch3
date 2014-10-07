@@ -867,3 +867,20 @@
 
 .method public abstract unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 .end method
+
+.method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;II)Z
+    .locals 2
+    .parameter "service"
+    .parameter "conn"
+    .parameter "flags"
+    .parameter "userHandle"
+
+    .prologue
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    const-string v1, "Not implemented. Must override in a subclass."
+
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+.end method

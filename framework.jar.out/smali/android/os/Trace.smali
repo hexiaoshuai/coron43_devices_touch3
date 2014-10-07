@@ -8,6 +8,8 @@
 
 .field private static final TAG:Ljava/lang/String; = "Trace"
 
+.field public static final TRACE_TAGS:[Ljava/lang/String; = null
+
 .field public static final TRACE_TAG_ACTIVITY_MANAGER:J = 0x40L
 
 .field public static final TRACE_TAG_ALWAYS:J = 0x1L
@@ -50,19 +52,18 @@
     .locals 2
 
     .prologue
-    .line 75
     const-wide/high16 v0, -0x8000
 
     sput-wide v0, Landroid/os/Trace;->sEnabledTags:J
 
-    .line 95
     new-instance v0, Landroid/os/Trace$1;
 
     invoke-direct {v0}, Landroid/os/Trace$1;-><init>()V
 
     invoke-static {v0}, Landroid/os/SystemProperties;->addChangeCallback(Ljava/lang/Runnable;)V
 
-    .line 100
+    invoke-static {}, Landroid/os/Trace;->initBaiduAddedStaticMembers()V
+
     return-void
 .end method
 
@@ -368,5 +369,78 @@
 
     .line 214
     :cond_0
+    return-void
+.end method
+
+.method private static initBaiduAddedStaticMembers()V
+    .locals 3
+
+    .prologue
+    const/16 v0, 0xa
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "Graphics"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    const-string v2, "Input"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
+
+    const-string v2, "View"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x3
+
+    const-string v2, "WebView"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x4
+
+    const-string v2, "Window Manager"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x5
+
+    const-string v2, "Activity Manager"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x6
+
+    const-string v2, "Sync Manager"
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x7
+
+    const-string v2, "Audio"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x8
+
+    const-string v2, "Video"
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x9
+
+    const-string v2, "Camera"
+
+    aput-object v2, v0, v1
+
+    sput-object v0, Landroid/os/Trace;->TRACE_TAGS:[Ljava/lang/String;
+
     return-void
 .end method

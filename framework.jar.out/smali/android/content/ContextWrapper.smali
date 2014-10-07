@@ -1798,3 +1798,20 @@
     .line 469
     return-void
 .end method
+
+.method public bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;II)Z
+    .locals 1
+    .parameter "service"
+    .parameter "conn"
+    .parameter "flags"
+    .parameter "userHandle"
+
+    .prologue
+    iget-object v0, p0, Landroid/content/ContextWrapper;->mBase:Landroid/content/Context;
+
+    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;II)Z
+
+    move-result v0
+
+    return v0
+.end method

@@ -1179,3 +1179,18 @@
 
     goto :goto_0
 .end method
+
+.method public getAssistIntent(Landroid/content/Context;I)Landroid/content/Intent;
+    .locals 1
+    .parameter "context"
+    .parameter "userHandle"
+
+    .prologue
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0, p2}, Landroid/app/SearchManager;->getAssistIntent(Landroid/content/Context;ZI)Landroid/content/Intent;
+
+    move-result-object v0
+
+    return-object v0
+.end method

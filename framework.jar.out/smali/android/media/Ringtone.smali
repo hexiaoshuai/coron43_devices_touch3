@@ -242,7 +242,7 @@
 
     .line 133
     .local v6, actualTitle:Ljava/lang/String;
-    const v1, 0x1040438
+    const v1, #android:string@ringtone_default_with_actual#t
 
     new-array v2, v11, [Ljava/lang/Object;
 
@@ -260,28 +260,23 @@
     :goto_0
     if-nez v10, :cond_1
 
-    .line 164
-    const v1, 0x104043b
+    const v1, #android:string@ringtone_unknown#t
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v10
 
-    .line 166
     if-nez v10, :cond_1
 
-    .line 167
     const-string v10, ""
 
     :cond_1
     move-object v1, v10
 
-    .line 171
     :cond_2
     :goto_1
     return-object v1
 
-    .line 139
     .restart local v8       #authority:Ljava/lang/String;
     :cond_3
     :try_start_0
@@ -452,7 +447,7 @@
 
     move-result-object v0
 
-    const v1, 0x1100001
+    const v1, #android:raw@fallbackring#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->openRawResourceFd(I)Landroid/content/res/AssetFileDescriptor;
 
@@ -793,6 +788,10 @@
     iget-object v2, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
 
     if-eqz v2, :cond_2
+
+    iget-object v2, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
+
+    if-eqz v2, :cond_baidu_0
 
     iget-object v2, p0, Landroid/media/Ringtone;->mUri:Landroid/net/Uri;
 

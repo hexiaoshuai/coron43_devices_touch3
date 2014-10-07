@@ -1232,7 +1232,7 @@
 
     move-result-object v8
 
-    const v9, 0x111004f
+    const v9, #android:bool@config_dontPreferApn#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
     :try_end_0
@@ -2388,6 +2388,9 @@
     .line 1089
     .local v2, mvnoMatchData:Ljava/lang/String;
     :cond_0
+
+    goto/16 :goto_baidu_0
+
     const-string v6, "mvno_type"
 
     invoke-interface {p1, v6}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
@@ -2426,6 +2429,8 @@
     move-result v6
 
     if-eqz v6, :cond_1
+
+    :goto_baidu_0
 
     .line 1096
     invoke-direct {p0, p1}, Lcom/android/internal/telephony/dataconnection/DcTracker;->makeApnSetting(Landroid/database/Cursor;)Lcom/android/internal/telephony/dataconnection/ApnSetting;
@@ -8821,7 +8826,7 @@
 
     move-result-object v9
 
-    const v10, 0x1070015
+    const v10, #android:array@networkAttributes#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

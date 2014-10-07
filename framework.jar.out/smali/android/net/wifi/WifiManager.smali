@@ -2386,3 +2386,14 @@
 
     goto :goto_0
 .end method
+
+.method public startScanActive()Z
+    .locals 1
+
+    .prologue
+    invoke-virtual {p0}, Landroid/net/wifi/WifiManager;->startScan()Z
+
+    move-result v0
+
+    return v0
+.end method
