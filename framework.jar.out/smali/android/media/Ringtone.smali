@@ -862,6 +862,7 @@
 
     .line 244
     :cond_3
+    :cond_baidu_0
     invoke-direct {p0}, Landroid/media/Ringtone;->playFallbackRingtone()Z
 
     move-result v2

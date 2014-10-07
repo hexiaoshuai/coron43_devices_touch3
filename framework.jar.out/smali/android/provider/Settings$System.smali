@@ -93,6 +93,8 @@
 
 .field public static final CABL_LEVELS:Ljava/lang/String; = "cabl_levels"
 
+.field public static final BUTTON_LIGHT_OFF:Ljava/lang/String; = "button_light_off"
+
 .field public static final CAR_DOCK_SOUND:Ljava/lang/String; = "car_dock_sound"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation

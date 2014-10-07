@@ -53,7 +53,7 @@ SIGN_OTA := true
 # customize weather add assert in update-script of ota package
 # set false if you don't need this assert fuction
 #-----------------------------------------------------------------------------
-# recovery_ota_assert := false
+recovery_ota_assert := false
 
 ##############################################################################
 # Directorys which you want to remove in vendor directory
@@ -104,7 +104,7 @@ vendor_saved_apps := Bluetooth BluetoothExt
 # you need decode android.policy.jar to the project directory (use apktool d android.policy.jar) first
 # then you can make it by:   make android.policy
 #-----------------------------------------------------------------------------
-vendor_modify_jars := framework oem-services pm services-ext services telephony-common
+vendor_modify_jars := framework framework2 oem-services pm services-ext services telephony-common
 
 ##############################################################################
 # Directorys which you want to saved in baidu directory

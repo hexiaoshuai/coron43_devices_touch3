@@ -4773,7 +4773,7 @@
 
     move-wide v2, v15
 
-    invoke-direct {v0, v1, v2, v3}, Landroid/content/res/Resources;->getCachedDrawable(Landroid/util/LongSparseArray;J)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/res/Resources;->getCachedDrawable(Landroid/util/LongSparseArray;J)Landroid/graphics/drawable/Drawable;
 
     move-result-object v8
 
@@ -4927,7 +4927,7 @@
 
     move-object/from16 v3, v28
 
-    invoke-direct {v0, v5, v1, v2, v3}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
+    invoke-virtual {v0, v5, v1, v2, v3}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
 
     move-result v26
 
@@ -5634,7 +5634,7 @@
 
     move-object/from16 v3, v28
 
-    invoke-direct {v0, v5, v1, v2, v3}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
+    invoke-virtual {v0, v5, v1, v2, v3}, Landroid/content/res/Resources;->verifyPreloadConfig(IIILjava/lang/String;)Z
 
     move-result v26
 

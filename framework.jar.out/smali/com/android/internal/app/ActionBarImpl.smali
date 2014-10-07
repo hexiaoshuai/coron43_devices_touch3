@@ -2484,14 +2484,9 @@
     .parameter "newConfig"
 
     .prologue
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mActionView:Lcom/android/internal/widget/ActionBarView;
+    invoke-static/range {p0 .. p0}, Lcom/android/internal/app/ActionBarImpl$BaiduInjector;->onConfigurationChanged(Lcom/android/internal/app/ActionBarImpl;)V
 
-    invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarView;->updateContentHeight()V
-
-    iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mContextView:Lcom/android/internal/widget/ActionBarContextView;
-
-    invoke-virtual {v0}, Lcom/android/internal/widget/ActionBarContextView;->updateContentHeight()V
-
+    .line 209
     iget-object v0, p0, Lcom/android/internal/app/ActionBarImpl;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/internal/view/ActionBarPolicy;->get(Landroid/content/Context;)Lcom/android/internal/view/ActionBarPolicy;
@@ -2504,7 +2499,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/app/ActionBarImpl;->setHasEmbeddedTabs(Z)V
 
-    .line 212
+    .line 210
     return-void
 .end method
 

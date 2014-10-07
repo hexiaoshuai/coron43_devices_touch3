@@ -302,6 +302,8 @@
 
     invoke-virtual {v1, v2}, Landroid/app/ProgressDialog;->setMessage(Ljava/lang/CharSequence;)V
 
+    invoke-static {p0, v1}, Lcom/android/server/power/ShutdownThread$BaiduInjector;->rebootProgressDialogBaidu(Landroid/content/Context;Landroid/app/ProgressDialog;)V
+
     invoke-virtual {v1, v4}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
     invoke-virtual {v1, v5}, Landroid/app/ProgressDialog;->setCancelable(Z)V

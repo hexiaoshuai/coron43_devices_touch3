@@ -321,7 +321,7 @@
     if-nez v34, :cond_7
 
     .line 984
-    new-instance v7, Lcom/android/server/am/AppErrorDialog;
+    new-instance v7, Lcom/android/server/am/BaiduAppErrorDialog;
 
     move-object/from16 v0, p0
 
@@ -547,7 +547,7 @@
     if-nez v34, :cond_b
 
     .line 1019
-    new-instance v7, Lcom/android/server/am/AppNotRespondingDialog;
+    new-instance v7, Lcom/android/server/am/BaiduAppNotRespondingDialog;
 
     move-object/from16 v0, p0
 
