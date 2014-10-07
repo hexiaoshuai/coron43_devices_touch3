@@ -1,0 +1,158 @@
+#
+# ADDITIONAL_DEFAULT_PROPERTIES
+#
+
+# Set the default spec as Default
+persist.env.spec=ChinaMobile
+
+
+# Set the default build as dsds
+persist.radio.multisim.config=ssss
+
+# Set the default value for CSVT and this prop needn't control by toos.
+persist.radio.calls.on.ims=0
+persist.radio.jbims=0
+persist.radio.csvt.enabled=false
+
+#config ecc numbers when sim card is locked
+persist.radio.custom_ecc=1
+#persist.radio.ecc_mcc_count=1
+#persist.radio.ecc_mcc_1={460:110,119,120,122}
+persist.radio.ecc_voice_count=1
+persist.radio.ecc_voice_1={460:110,119,120,122}
+persist.radio.ecc_hardmcc_count=1
+persist.radio.ecc_hardmcc_1={460:110,119,120,122}
+persist.radio.rat_on=combine
+persist.radio.mt_sms_ack=20
+
+# Const
+persist.env.c.browser.resource=default
+#dingyj 20131122 remove
+#persist.env.c.sb.style=0
+persist.env.c.email.carrier=default
+persist.env.c.email.defsmtp=587
+
+#tianyu wangzhzh 20131114 modify
+#persist.env.c.phone.matchnum=7
+
+#tianyu wangzhzh modify
+#persist.env.c.phone.networkmode=0
+
+#tianyu jiamr add for updata time
+persist.env.c.ntp_server=pool.ntp.org
+
+persist.env.c.mms.addressindex=1
+persist.env.c.mms.limitcount=0
+persist.env.c.mms.maxtextsize=0
+persist.env.c.mms.maxslidenum=10
+
+# For Phone
+persist.env.phone.smartdialer=true
+persist.env.phone.nosim=true
+persist.env.phone.diffsim=true
+persist.env.phone.carriername=false
+persist.env.phone.hidevoip=false
+persist.env.phone.callfwd.name=false
+persist.env.phone.jointforward=false
+persist.env.phone.activetime=false
+persist.env.phone.noduration=false
+persist.env.phone.callbarring=false
+persist.env.phone.location=false
+persist.env.phone.ecclist=false
+persist.env.phone.global=false
+persist.env.phone.geoforcontact=true
+#persist.env.phone.plmn=false
+
+# For Contacts
+persist.env.contacts.autosync=true
+
+# For MMS
+persist.env.mms.vcard=true
+persist.env.mms.wappushdialog=false
+persist.env.mms.discardlongsms=false
+persist.env.mms.7bitascii=false
+persist.env.mms.retryatonce=false
+persist.env.mms.retryalways=false
+persist.env.mms.reconnect=true
+persist.env.mms.savelocation=false
+persist.env.mms.mailbox=false
+persist.env.mms.manualresend=false
+persist.env.mms.smspriority=false
+#TIANYURD zhangwp 20140110 modify for PROD102505820 begin
+persist.env.mms.classifysearch=true
+#TIANYURD zhangwp 20140110 modify for PROD102505820 end
+persist.env.mms.checksymbol=false
+#TY ShenLei 2013/12/16 modify for new sms ringtone in call state Start
+persist.env.mms.smsringtone=true
+#TY ShenLei 2013/12/16 modify for new sms ringtone in call state End
+persist.env.mms.senttime=false
+#TYRD:Zhao Dan 20140324 remove this property to project config file begin
+#persist.env.mms.setupmmsdata=false
+#TYRD:Zhao Dan 20140324 remove this property to project config file end
+persist.env.mms.forwardconv=false
+persist.env.mms.enterkey=false
+
+# For Email
+persist.env.email.notifyicon=false
+persist.env.email.specprovider=false
+persist.env.email.sendprogress=false
+persist.env.email.forwardalert=false
+persist.env.email.showmail=false
+persist.env.email.syncsize=true
+persist.env.email.pickcontacts=true
+persist.env.email.attachfile=true
+persist.env.email.deletealert=false
+
+# For Video
+persist.env.video.loop=false
+persist.env.video.playlist=false
+persist.env.video.stereo=false
+persist.env.video.streaming=false
+
+# For Statusbar
+persist.env.sb.headset=true
+persist.env.sb.apnswitch=false
+#tianyu wangzhzh 20131129 modify false->true
+persist.env.sb.dataswitch=true
+persist.env.sys.SHOW_CARRIER=true
+
+# For System
+persist.env.sys.bootanim=true
+persist.env.data.disable.sub2=false
+persist.env.sys.btnstyle=true
+
+# For Launcher
+persist.env.launcher.mail189=false
+persist.env.launcher.shortcut=false
+persist.env.launcher.sort=false
+persist.env.launcher.page=false
+
+# For Browser
+persist.env.browser.wap2estore=false
+persist.env.browser.drmupload=false
+
+# For Baidu xCloud
+persist.env.baidu.xcloud=true
+
+# For Settings
+persist.env.settings.cfgmmsapn=false
+persist.env.settings.showppp=false
+#TIANYURD:zhangqiluo modify for AGPS setting begin
+persist.env.settings.hidesupl=true
+#TIANYURD:zhangqiluo modify for AGPS setting end
+persist.env.settings.cabl=false
+persist.env.settings.netinfo=false
+persist.env.settings.wifiprior=false
+persist.env.settings.autocon=false
+persist.env.settings.cell2wifi=false
+persist.env.settings.ssid=false
+persist.env.settings.wifi2cell=false
+persist.env.settings.apprompt=true
+#TY ShenLei 2013/11/29 modify for AGPS Settings Start
+persist.env.settings.agps=true
+#TY ShenLei 2013/11/29 modify for AGPS Settings End
+persist.env.settings.searchapp=false
+
+# For DeskClock
+persist.env.deskclock.poalert=false
+persist.env.deskclock.incallsnz=false

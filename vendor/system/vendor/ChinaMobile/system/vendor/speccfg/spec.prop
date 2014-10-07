@@ -1,0 +1,81 @@
+#
+# ADDITIONAL_FEATURE_PROPERTIES FOR ChinaTelecom SPEC
+#
+
+# Set the current spec as ChinaMobile
+persist.env.spec=ChinaMobile
+
+# Const
+persist.env.c.browser.resource=cmcc
+persist.env.c.email.carrier=cmcc
+persist.env.c.email.defsmtp=25
+persist.env.c.mms.limitcount=10
+persist.env.c.mms.addressindex=0
+persist.env.c.mms.maxslidenum=20
+
+#TY ShenLei 2013/12/04 delete for CQWB00008495 start*/
+#persist.env.c.mms.maxcount=2000
+#TY ShenLei 2013/12/04 delete for CQWB00008495 end*/
+persist.env.c.mms.maxtextsize=3000
+#TYRD: Zhao Dan remove this prop to project make file begin
+#ro.telephony.default_network=16,1
+#TYRD: Zhao Dan remove this prop to project make file end
+#tianyu wangzhzh modify
+#persist.env.c.phone.networkmode=2
+
+# For Phone
+persist.env.phone.noduration=true
+persist.env.phone.callbarring=true
+persist.env.phone.location=true
+persist.env.phone.backtoapp=true
+persist.env.phone.autoprovision=true
+
+# For MMS
+persist.env.mms.discardlongsms=true
+persist.env.mms.retryatonce=true
+persist.env.mms.savelocation=true
+persist.env.mms.mailbox=true
+persist.env.mms.classifysearch=true
+persist.env.mms.forwardconv=true
+persist.env.mms.enterkey=true
+persist.env.mms.manualresend=true
+
+# For Settings
+persist.env.settings.netinfo=true
+persist.env.settings.wifiprior=true
+persist.env.settings.autocon=true
+persist.env.settings.cell2wifi=true
+persist.env.settings.ssid=true
+persist.env.settings.wifi2cell=true
+persist.env.settings.apprompt=true
+persist.env.settings.agps=true
+persist.env.settings.searchapp=true
+persist.env.settings.wifirecv=true
+persist.env.settings.hidesupl=true
+
+# For Statusbar
+persist.env.sb.dataswitch=true
+persist.env.settings.ime=true
+persist.env.c.sb.style=3
+
+# For Video
+persist.env.video.loop=true
+persist.env.video.playlist=true
+#TYRD: niuli close this prop for doesn't support stereo begin 20131218
+persist.env.video.stereo=false
+#TYRD: niuli close this prop for doesn't support stereo end 20131218
+persist.env.video.streaming=true
+persist.env.video.speaker=true
+
+# For Browser
+persist.env.browser.netswitch=true
+
+# For System
+persist.env.sys.wifi.autocon=true
+
+# For DeskClock
+persist.env.deskclock.poalert=true
+persist.env.deskclock.incallsnz=true
+
+# For SoundRecorder
+persist.env.soundrecorder.pause=true

@@ -1,0 +1,20 @@
+#!/system/bin/sh
+# Kernel Tweaks
+# ---------------------------------
+
+sysctl -w kernel.sched_features=15834233;
+sysctl -w kernel.panic=0;
+sysctl -w kernel.panic_on_oops=1;
+#sysctl -w kernel.msgmni=2048;
+#sysctl -w kernel.msgmax=64000;
+#sysctl -w kernel.shmmax=268435500;
+#sysctl -w kernel.sem=500,512000,64,2048;
+#sysctl -w kernel.hung_task_timeout_secs=0;
+sysctl -w kernel.sched_latency_ns=5000000; #600000
+sysctl -w kernel.sched_min_granularity_ns=1000000; #400000
+sysctl -w kernel.sched_wakeup_granularity_ns=1000000;
+sysctl -w kernel.sched_compat_yield=1;
+#sysctl -w kernel.sched_shares_ratelimit=256000;
+sysctl -w kernel.sched_child_runs_first=0;
+#sysctl -w kernel.threads-max=10000;
+#sysctl -w kernel.multi_threading=2; #0 for off, 1 for on, 2 for always. Default is 1 in Gingerbread. 

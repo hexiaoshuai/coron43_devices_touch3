@@ -1,0 +1,10 @@
+version: 1.5.2
+apkFileName: framework-res.apk
+isFrameworkApk: true
+sdkInfo:
+  minSdkVersion: '18'
+  targetSdkVersion: '18'
+packageInfo:
+  cur_package: android
+  orig_package: android
+compressionType: false

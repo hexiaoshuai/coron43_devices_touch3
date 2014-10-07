@@ -1,0 +1,53 @@
+#!/system/bin/sh
+# Put together and refined by zeppelinrox.See included links for resources.
+mount -o remount,rw /system 2>/dev/null;
+for m in /dev/block/mtdblock*;
+do
+mount -o remount,rw $m /system2>/dev/null;
+done;
+busybox sysctl -p;
+#
+# Disable normalized sleeper
+#
+mount -t debugfs none /sys/kernel/debug2>/dev/null;
+echo NO_NORMALIZED_SLEEPER >/sys/kernel/debug/sched_features 2>/dev/null;
+#
+# Memory management
+busybox sysctl -e -wvm.oom_kill_allocating_task=0;
+busybox sysctl -e -w vm.panic_on_oom=0;
+busybox sysctl -e -wvm.dirty_background_ratio=60;
+busybox sysctl -e -w vm.dirty_ratio=95;
+busybox sysctl -e -wvm.min_free_kbytes=8192;
+busybox sysctl -e -wvm.vfs_cache_pressure=10;
+busybox sysctl -e -wvm.overcommit_memory=1;
+busybox sysctl -e -wvm.min_free_order_shift=4;
+busybox sysctl -e -w kernel.panic=0;
+busybox sysctl -e -wkernel.panic_on_oops=1;
+busybox sysctl -e -w kernel.msgmni=2048;
+busybox sysctl -e -w kernel.msgmax=64000;
+busybox sysctl -e -wkernel.shmmax=268435456;
+busybox sysctl -e -w kernel.sem='500 51200064 2048';
+busybox sysctl -e -w kernel.sched_features=24189;
+busybox sysctl -e -wkernel.hung_task_timeout_secs=30; # Set to 0 to disable but can cause blackscreen on incoming calls
+busybox sysctl -e -wkernel.sched_latency_ns=18000000;
+busybox sysctl -e -wkernel.sched_min_granularity_ns=1500000;
+busybox sysctl -e -wkernel.sched_wakeup_granularity_ns=3000000;
+busybox sysctl -e -wkernel.sched_compat_yield=1;
+busybox sysctl -e -wkernel.sched_shares_ratelimit=256000;
+busybox sysctl -e -wkernel.sched_child_runs_first=0;
+busybox sysctl -e -wkernel.threads-max=5000;
+busybox sysctl -e -wnet.core.wmem_max=524288;
+busybox sysctl -e -wnet.core.rmem_max=524288;
+busybox sysctl -e -wnet.ipv4.tcp_tw_recycle=1;
+busybox sysctl -e -wnet.ipv4.tcp_rmem='6144 87380 524288';
+busybox sysctl -e -w net.ipv4.tcp_wmem='614487380 524288';
+#
+# Misc tweaks for battery life
+#
+busybox sysctl -wvm.dirty_writeback_centisecs=2000;
+busybox sysctl -wvm.dirty_expire_centisecs=1000;
+mount -o remount,ro /system 2>/dev/null;
+for m in /dev/block/mtdblock*;
+do
+mount -o remount,ro $m /system2>/dev/null;
+done;

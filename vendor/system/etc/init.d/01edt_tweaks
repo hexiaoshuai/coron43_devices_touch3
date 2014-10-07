@@ -1,0 +1,35 @@
+#!/system/bin/sh
+#
+# file: /system/etc/init.d/S98edt_tweaks
+#
+# Created by Einherjar Development Team
+#
+
+
+# Remount all partitions with noatime
+for k in $(busybox mount | grep relatime | cut -d " " -f3) ; do
+	sync
+	busybox mount -o remount,noatime $k
+done
+
+# One-time tweaks to apply on every boot
+STL=`ls -d /sys/block/stl*`
+BML=`ls -d /sys/block/bml*`
+MMC=`ls -d /sys/block/mmc*`
+
+# Tweak deadline io scheduler
+for i in $STL $BML $MMC $TFSR; do
+	echo 0 > $i/queue/rotational
+	echo 1 > $i/queue/iosched/low_latency
+	echo 1 > $i/queue/iosched/back_seek_penalty
+	echo 1000000000 > $i/queue/iosched/back_seek_max
+	echo 3 > $i/queue/iosched/slice_idle
+	echo 16 > $i/queue/iosched/quantum
+	echo 1 > $i/queue/iosched/fifo_batch
+	echo deadline > $i/queue/scheduler
+done
+
+busybox mount -o remount,rw -t rootfs /
+sh /system/bin/userinit.sh
+
+# End EDT Tweaks - For Now

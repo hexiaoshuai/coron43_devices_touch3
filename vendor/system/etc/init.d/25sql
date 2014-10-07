@@ -1,0 +1,65 @@
+#!/system/bin/sh
+# sqlite tweaks
+
+busybox mount -o remount,rw -t auto /system;
+busybox mount -o remount,rw -t auto /data;
+busybox mount -o remount,rw -t auto /sys;
+busybox mount -o remount,rw -t auto /proc;
+
+if [ -f /data/system/packages.xml ];
+	then
+	for i in `busybox find /data -iname "*.db"`;	do
+		/system/xbin/sqlite3 $i 'PRAGMA journal_mode = WAL;'; 
+	done;
+else
+	echo "May Need To Reboot after first boot for WAL to take effect";
+fi;
+
+if [ -f /data/system/packages.xml ];
+	then
+	for i in `busybox find /data -iname "*.db"`;	do
+		/system/xbin/sqlite3 $i 'PRAGMA temp_store = MEMORY;';  
+	done;
+else
+	echo "May Need To Reboot after first boot for WAL to take effect";
+fi;
+
+if [ -f /data/system/packages.xml ];
+	then
+	for i in `busybox find /data -iname "*.db"`;	do
+		/system/xbin/sqlite3 $i 'PRAGMA count_changes = OFF;';  
+	done;
+else
+	echo "May Need To Reboot after first boot for WAL to take effect";
+fi;
+
+if [ -f /data/system/packages.xml ];
+	then
+	for i in `busybox find /data -iname "*.db"`;	do
+		/system/xbin/sqlite3 $i 'PRAGMA synchronous = OFF;';  
+	done;
+else
+	echo "May Need To Reboot after first boot for WAL to take effect";
+fi;
+
+if [ -f /data/system/packages.xml ];
+	then
+	for i in `busybox find /data -iname "*.db"`;	do
+		/system/xbin/sqlite3 $i 'PRAGMA auto_vacuum = FULL;';  
+	done;
+else
+	echo "May Need To Reboot after first boot for WAL to take effect";
+fi;
+
+if [ -f /data/system/packages.xml ];
+	then
+	for i in `busybox find /data -iname "*.db"`;	do
+		/system/xbin/sqlite3 $i 'PRAGMA wal_autocheckpoint = 0;';  
+	done;
+else
+	echo "May Need To Reboot after first boot for WAL to take effect";
+fi;
+
+
+
+

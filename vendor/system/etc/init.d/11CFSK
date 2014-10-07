@@ -1,0 +1,8 @@
+#!/system/bin/sh
+sync;
+sysctl -w vm.drop_caches=3;
+#echo 3 > /proc/sys/vm/drop_caches;
+sleep 1;
+sysctl -w vm.drop_caches=0;
+#echo 0 > /proc/sys/vm/drop_caches;
+echo "Caches are dropped!";

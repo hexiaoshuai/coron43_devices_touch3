@@ -1,0 +1,106 @@
+#!/system/bin/sh
+# Speedy tweak recompiled by szywenhao
+# Reproduced indicate the source
+#--------------------------------------------------------------------
+
+# Remove logs, user statistics and analyzation
+# & disable all statistics and data collection
+# This should definitely help with battery life!s
+#
+rm -r /data/local/tmp/*
+rm -r /data/tmp/*
+rm -r /data/system/usagestats/*
+rm -r /data/system/appusagestats/*
+rm -r /data/system/dropbox/*
+rm -r /data/tombstones/*
+rm -r /data/anr/*
+busybox chmod 000 /data/system/userbehavior.db
+busybox chmod 000 /data/system/usagestats/
+busybox chmod 000 /data/system/dropbox/
+busybox chmod 000 /data/anr/
+busybox chmod 000 /data/tombstones/
+busybox chmod 000 /data/system/appusagestats/
+busybox chmod 000 /data/data/com.google.android.location/files/cache.cell
+busybox chmod 000 /data/data/com.google.android.location/files/cache.wifi
+
+
+# Allow configuring of both cores
+#echo "1" > /sys/devices/system/cpu/cpu0/online;
+#echo "1" > /sys/devices/system/cpu/cpu1/online;
+
+# Remount each file system with noatime and nodiratime flags to save battery and CPU cycles
+# and change journaling mode for data and cache
+#
+busybox mount -o remount,noatime,nodiratime,remount,rw,barrier=0,data=writeback /data;
+busybox mount -o remount,noatime,nodiratime,remount,rw,barrier=0,data=writeback /cache;
+busybox mount -o remount,noatime,nodiratime /dev;
+busybox mount -o remount,noatime,nodiratime /proc;
+busybox mount -o remount,noatime,nodiratime /sys;
+busybox mount -o remount,noatime,nodiratime /system;
+
+#
+
+# Memory Management
+# 
+sysctl -w vm.swappiness=0;
+sysctl -w vm.oom_kill_allocating_task=0;
+sysctl -w vm.panic_on_oom=0;
+sysctl -w vm.min_free_kbytes=4096;
+sysctl -w vm.vfs_cache_pressure=40;
+
+# It's interesting how low some of these below settings are on stock Gingerblur, indicating
+# Motorola had the DX2 flushing every half a second, which in turn, drains battery like crazy.
+
+# Maximum percentage of pages that can be filled with dirty pages before pdflush begins to write them
+sysctl -w vm.dirty_background_ratio=65;
+
+# Maximum percentage of total memory that can be filled with dirty pages before processes are forced to
+# write dirty buffers themselves during their time slice instead of being allowed to do more writes.
+sysctl -w vm.dirty_ratio=65; #USE WITH CAUTION!
+
+# How often pdflush wakes up to write data to disk -- I don't know what's going on here.. these
+# seem to be very problematic, and cause a great deal of slow downs
+sysctl -w vm.dirty_writeback_centisecs=1000; #3000
+
+# How long data can be in page cache before it's "expired" and must be written at next opportunity
+sysctl -w vm.dirty_expire_centisecs=1000;
+
+
+# Clean up (vacumm) SQL databases, to decrease file size and increase performance
+#
+for i in `find /data -iname "*.db"`;	do
+	sqlite3 $i 'VACUUM;'; 
+done;
+
+# Thanks To Mike Lierman(The source code available)
+
+
+# Internet TCP Stack Optimization
+# Location: /proc/sys/net/ipv4
+sysctl -w net.ipv4.tcp_timestamps=0;
+sysctl -w net.ipv4.tcp_tw_reuse=1;
+sysctl -w net.ipv4.tcp_tw_recycle=1;
+sysctl -w net.ipv4.tcp_sack=1;
+sysctl -w net.ipv4.tcp_window_scaling=1;
+sysctl -w net.ipv4.tcp_keepalive_probes=5; # Retries before connection is considered dead
+sysctl -w net.ipv4.tcp_keepalive_intvl=156; # Every 2.6 minutes should be a lot more friendly
+sysctl -w net.ipv4.tcp_fin_timeout=30;
+sysctl -w net.ipv4.tcp_rmem='6144	87380 524288'; # 65536	131072 524288
+sysctl -w net.ipv4.tcp_wmem='6144	131072 524288'; # 65536	131072 524288
+sysctl -w net.ipv4.tcp_ecn=0; # Explict Congestion Notification
+sysctl -w net.ipv4.tcp_max_tw_buckets=360000; # Prevents simple DoS connection attacks
+sysctl -w net.ipv4.tcp_synack_retries=2; #Default: 5
+
+# Ignore all icmp packets or pings
+sysctl -w net.ipv4.icmp_echo_ignore_all=1;
+sysctl -w net.ipv6.icmp_echo_ignore_all=1;
+
+# Net Core Settings
+# Location: /proc/sys/net/core
+sysctl -w net.core.wmem_max=524288; #404480
+sysctl -w net.core.rmem_max=524288; #404480
+sysctl -w net.core.rmem_default=110592;
+sysctl -w net.core.wmem_default=110592;
+
+# Ensures set tcp values are used
+sysctl -w net.ipv4.route.flush=1;

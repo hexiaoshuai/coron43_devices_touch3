@@ -1,0 +1,40 @@
+#!/system/bin/sh
+#
+#st@matis build.prop tweak script
+#
+# build.prop tweaks
+setprop dalvik.vm.execution-mode=int:jit
+setprop persist.sys.purgeable_assets=1
+setprop dalvik.vm.dexopt-flags=m=y
+setprop ro.media.enc.jpeg.quality=90
+setprop dalvik.vm.heapsize=48m
+setprop ro.telephony.call_ring.delay=0
+setprop debug.performance.tuning=1
+setprop ro.ril.disable.power.collapse=0
+setprop pm.sleep_mode=1
+setprop video.accelerate.hw=1
+setprop windowsmgr.max_events_per_sec=180
+setprop ro.ril.disable.power.collapse=1
+setprop wifi.supplicant_scan_interval=150
+setprop mot.proximity.delay=150
+setprop persist.sys.shutdown.mode=hibernate
+setprop ro.ext4fs=1
+setprop ro.config.hwfeature_wakeupkey=0
+setprop dalvik.vm.startheapsize=4
+setprop ro.kernel.android.checkjni=0
+setprop ro.ril.hsxpa=0
+setprop ro.ril.hsupa.category=6;
+setprop ro.ril.hsdpa.category=8;
+setprop ro.ril.enable.dtm=1;
+setprop ro.ril.enable.a53=1;
+setprop ro.ril.enable.3g.prefix=1;
+setprop keyguard.no_require_sim=true;
+setprop net.tcp.buffersize.default=4096,87380,256960,4096,16384,256960;
+setprop net.tcp.buffersize.wifi=4096,87380,256960,4096,16384,256960;
+setprop net.tcp.buffersize.umts=4096,87380,256960,4096,16384,256960;
+setprop net.tcp.buffersize.edge=4096,87380,256960,4096,16384,256960;
+setprop net.tcp.buffersize.gprs=4096,87380,256960,4096,16384,256960;
+setprop windowsmgr.support_rotation_270=true;
+setprop ro.mot.eri.losalert.delay=000;
+setprop ro.lge.proximity.delay=25;
+setprop ro.media.dec.jpeg.memcap=20000000;

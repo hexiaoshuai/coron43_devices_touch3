@@ -1,0 +1,2 @@
+#!/system/bin/sh
+echo 1 > /sys/devices/platform/msm_ssbi.0/pm8921-core/pm8xxx-led/leds/button-backlight/currents
