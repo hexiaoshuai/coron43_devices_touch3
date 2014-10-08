@@ -1,0 +1,147 @@
+.method protected onPause()V
+    .locals 1
+
+    .prologue
+    .line 456
+    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onPause()V
+
+    .line 457
+    iget-object v0, p0, Lcom/android/phone/Settings;->mDataUsageListener:Lcom/android/phone/DataUsageListener;
+
+    #invoke-virtual {v0}, Lcom/android/phone/DataUsageListener;->pause()V
+
+    .line 458
+    return-void
+.end method
+
+.method protected onResume()V
+    .locals 7
+
+    .prologue
+    const/4 v6, 0x0
+
+    const/4 v5, 0x1
+
+    .line 422
+    invoke-super {p0}, Landroid/preference/PreferenceActivity;->onResume()V
+
+    .line 426
+    invoke-virtual {p0}, Lcom/android/phone/Settings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v5}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
+
+    .line 428
+    const-string v3, "connectivity"
+
+    invoke-virtual {p0, v3}, Lcom/android/phone/Settings;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/ConnectivityManager;
+
+    .line 430
+    .local v0, cm:Landroid/net/ConnectivityManager;
+    iget-object v3, p0, Lcom/android/phone/Settings;->mButtonDataEnabled:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getMobileDataEnabled()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 435
+    iget-object v3, p0, Lcom/android/phone/Settings;->mButtonDataRoam:Landroid/preference/CheckBoxPreference;
+
+    iget-object v4, p0, Lcom/android/phone/Settings;->mPhone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v4}, Lcom/android/internal/telephony/Phone;->getDataRoamingEnabled()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 437
+    invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
+
+    move-result-object v2
+
+    .line 438
+    .local v2, tm:Landroid/telephony/TelephonyManager;
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getPhoneType()I
+
+    move-result v1
+
+    .line 440
+    .local v1, phoneType:I
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "phoneType = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/phone/Settings;->log(Ljava/lang/String;)V
+
+    .line 441
+    if-ne v1, v5, :cond_1
+
+    .line 442
+    iget-object v3, p0, Lcom/android/phone/Settings;->mButtonStartGsm:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v3, v5}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    .line 447
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/phone/Settings;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v3
+
+    const-string v4, "preferred_network_mode_key"
+
+    invoke-virtual {v3, v4}, Landroid/preference/PreferenceScreen;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_0
+
+    .line 448
+    iget-object v3, p0, Lcom/android/phone/Settings;->mPhone:Lcom/android/internal/telephony/Phone;
+
+    iget-object v4, p0, Lcom/android/phone/Settings;->mHandler:Lcom/android/phone/Settings$MyHandler;
+
+    invoke-virtual {v4, v6}, Lcom/android/phone/Settings$MyHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Lcom/android/internal/telephony/Phone;->getPreferredNetworkType(Landroid/os/Message;)V
+
+    .line 451
+    :cond_0
+    iget-object v3, p0, Lcom/android/phone/Settings;->mDataUsageListener:Lcom/android/phone/DataUsageListener;
+
+    #invoke-virtual {v3}, Lcom/android/phone/DataUsageListener;->resume()V
+
+    .line 452
+    return-void
+
+    .line 444
+    :cond_1
+    iget-object v3, p0, Lcom/android/phone/Settings;->mButtonStartGsm:Landroid/preference/CheckBoxPreference;
+
+    invoke-virtual {v3, v6}, Landroid/preference/CheckBoxPreference;->setChecked(Z)V
+
+    goto :goto_0
+.end method

@@ -125,13 +125,13 @@ vendor_modify_jars := framework framework2 oem-services pm services-ext services
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-baidu_modify_apps := Phone
+baidu_modify_apps := SystemUI Phone Settings Contacts
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar
 # just append *.smali.part
 #-----------------------------------------------------------------------------
-# baidu_modify_jars := android.policy
+baidu_modify_jars := framework-yi
 
 ##############################################################################
 # override_property: this property will override the build.prop
@@ -148,13 +148,16 @@ baidu_modify_apps := Phone
 # You should configure the property according to your device.
 # In general, most devices support the phone book index, so the property default value is true.
 # Becareful about the initial number of index, some devices start from 0, while others start from 1.
-# override_property += \
-#     phone_book_index_supported=true
+override_property += \
+    phone_book_index_supported=false
+
+override_property += \
+    ro.build.version.release=4.3
 
 # The property decide your ID on the backend server which statistical data for your device.
 # You should configure the property according to your ID, ie, replace "Coron" with your ID.
-# override_property += \
-#    ro.baidu.romer=Coron
+override_property += \
+    ro.baidu.romer=Coron_HXS
 
 ##############################################################################
 # remove_property: this property will remove from the build.prop

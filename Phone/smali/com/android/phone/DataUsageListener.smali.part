@@ -1,0 +1,86 @@
+.method private updatePolicy()V
+    .locals 5
+
+    .prologue
+    const/4 v1, 0x0
+
+    const/4 v4, 0x1
+
+    .line 119
+    iget-object v0, p0, Lcom/android/phone/DataUsageListener;->mThrottleManager:Landroid/net/ThrottleManager;
+
+    if-eqz v0, :cond_baidu_0
+
+    invoke-virtual {v0, v1, v4}, Landroid/net/ThrottleManager;->getCliffLevel(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/phone/DataUsageListener;->mPolicyThrottleValue:I
+
+    .line 120
+    iget-object v0, p0, Lcom/android/phone/DataUsageListener;->mThrottleManager:Landroid/net/ThrottleManager;
+
+    invoke-virtual {v0, v1, v4}, Landroid/net/ThrottleManager;->getCliffThreshold(Ljava/lang/String;I)J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/phone/DataUsageListener;->mPolicyThreshold:J
+
+    .line 122
+    :cond_baidu_0
+    iget-object v0, p0, Lcom/android/phone/DataUsageListener;->mSummaryPref:Landroid/preference/Preference;
+
+    if-eqz v0, :cond_0
+
+    .line 127
+    iget-wide v0, p0, Lcom/android/phone/DataUsageListener;->mPolicyThreshold:J
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-nez v0, :cond_1
+
+    .line 128
+    iget-boolean v0, p0, Lcom/android/phone/DataUsageListener;->mSummaryPrefEnabled:Z
+
+    if-eqz v0, :cond_0
+
+    .line 129
+    iget-object v0, p0, Lcom/android/phone/DataUsageListener;->mPrefScreen:Landroid/preference/PreferenceScreen;
+
+    iget-object v1, p0, Lcom/android/phone/DataUsageListener;->mSummaryPref:Landroid/preference/Preference;
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 130
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/phone/DataUsageListener;->mSummaryPrefEnabled:Z
+
+    .line 139
+    :cond_0
+    :goto_0
+    invoke-direct {p0}, Lcom/android/phone/DataUsageListener;->updateUI()V
+
+    .line 140
+    return-void
+
+    .line 133
+    :cond_1
+    iget-boolean v0, p0, Lcom/android/phone/DataUsageListener;->mSummaryPrefEnabled:Z
+
+    if-nez v0, :cond_0
+
+    .line 134
+    iput-boolean v4, p0, Lcom/android/phone/DataUsageListener;->mSummaryPrefEnabled:Z
+
+    .line 135
+    iget-object v0, p0, Lcom/android/phone/DataUsageListener;->mPrefScreen:Landroid/preference/PreferenceScreen;
+
+    iget-object v1, p0, Lcom/android/phone/DataUsageListener;->mSummaryPref:Landroid/preference/Preference;
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->addPreference(Landroid/preference/Preference;)Z
+
+    goto :goto_0
+.end method

@@ -1,0 +1,122 @@
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 4
+    .parameter "icicle"
+
+    .prologue
+    .line 49
+    invoke-super {p0, p1}, Landroid/preference/PreferenceActivity;->onCreate(Landroid/os/Bundle;)V
+
+    .line 51
+    const-string v0, "throttle"
+
+    invoke-virtual {p0, v0}, Lcom/android/phone/DataUsage;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_baidu_0
+
+    check-cast v0, Landroid/net/ThrottleManager;
+
+    iput-object v0, p0, Lcom/android/phone/DataUsage;->mThrottleManager:Landroid/net/ThrottleManager;
+
+    .line 53
+    :cond_baidu_0
+    const v0, #com.android.phone:xml@data_usage_settings#t
+
+    invoke-virtual {p0, v0}, Lcom/android/phone/DataUsage;->addPreferencesFromResource(I)V
+
+    .line 55
+    const-string v0, "throttle_current_usage"
+
+    invoke-virtual {p0, v0}, Lcom/android/phone/DataUsage;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/phone/DataUsage;->mCurrentUsagePref:Landroid/preference/Preference;
+
+    .line 56
+    const-string v0, "throttle_time_frame"
+
+    invoke-virtual {p0, v0}, Lcom/android/phone/DataUsage;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/phone/DataUsage;->mTimeFramePref:Landroid/preference/Preference;
+
+    .line 57
+    const-string v0, "throttle_rate"
+
+    invoke-virtual {p0, v0}, Lcom/android/phone/DataUsage;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/phone/DataUsage;->mThrottleRatePref:Landroid/preference/Preference;
+
+    .line 58
+    const-string v0, "throttle_help"
+
+    invoke-virtual {p0, v0}, Lcom/android/phone/DataUsage;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/phone/DataUsage;->mHelpPref:Landroid/preference/Preference;
+
+    .line 60
+    iget-object v0, p0, Lcom/android/phone/DataUsage;->mThrottleManager:Landroid/net/ThrottleManager;
+
+    if-eqz v0, :cond_baidu_1
+
+    invoke-virtual {v0}, Landroid/net/ThrottleManager;->getHelpUri()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_baidu_1
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/phone/DataUsage;->mHelpUri:Ljava/lang/String;
+
+    .line 61
+    iget-object v0, p0, Lcom/android/phone/DataUsage;->mHelpUri:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    .line 62
+    invoke-virtual {p0}, Lcom/android/phone/DataUsage;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/phone/DataUsage;->mHelpPref:Landroid/preference/Preference;
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    .line 67
+    :goto_0
+    new-instance v0, Lcom/android/phone/DataUsageListener;
+
+    iget-object v1, p0, Lcom/android/phone/DataUsage;->mCurrentUsagePref:Landroid/preference/Preference;
+
+    iget-object v2, p0, Lcom/android/phone/DataUsage;->mTimeFramePref:Landroid/preference/Preference;
+
+    iget-object v3, p0, Lcom/android/phone/DataUsage;->mThrottleRatePref:Landroid/preference/Preference;
+
+    invoke-direct {v0, p0, v1, v2, v3}, Lcom/android/phone/DataUsageListener;-><init>(Landroid/content/Context;Landroid/preference/Preference;Landroid/preference/Preference;Landroid/preference/Preference;)V
+
+    iput-object v0, p0, Lcom/android/phone/DataUsage;->mDataUsageListener:Lcom/android/phone/DataUsageListener;
+
+    .line 69
+    return-void
+
+    .line 64
+    :cond_0
+    iget-object v0, p0, Lcom/android/phone/DataUsage;->mHelpPref:Landroid/preference/Preference;
+
+    const v1, #com.android.phone:string@throttle_help_subtext#t
+
+    invoke-virtual {p0, v1}, Lcom/android/phone/DataUsage;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+.end method

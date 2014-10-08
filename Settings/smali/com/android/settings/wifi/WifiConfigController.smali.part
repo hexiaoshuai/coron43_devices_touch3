@@ -1,0 +1,9 @@
+.method static requireKeyStore(Landroid/net/wifi/WifiConfiguration;)Z
+    .locals 1
+    .parameter "config"
+
+    .prologue
+    const/4 v0, 0x0
+
+    return v0
+.end method
