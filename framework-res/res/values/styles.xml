@@ -3452,7 +3452,7 @@
         <item name="actionModeSplitBackground">@drawable/kt_action_mode_split_background</item>
         <item name="panelMenuListTheme">@style/KTCompactMenu</item>
         <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
-        <item name="toastFrameBackground">@drawable/ty_toast_frame</item>
+        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
         <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
         <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
         <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>
@@ -3525,7 +3525,7 @@
         <item name="editTextBackground">@drawable/ty_edit_text_holo_dark</item>
         <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
         <item name="dialogTitleDecorLayout">@layout/ty_dialog_title_holo</item>
-        <item name="toastFrameBackground">@drawable/ty_toast_frame</item>
+        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
         <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
         <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
         <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>
@@ -3797,7 +3797,7 @@
         <item name="listPreferredItemPaddingStart">@dimen/ty_alert_dialog_padding_horizontal</item>
         <item name="listPreferredItemPaddingEnd">@dimen/ty_alert_dialog_padding_horizontal</item>
         <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
-        <item name="toastFrameBackground">@drawable/ty_toast_frame</item>
+        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
         <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
         <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
         <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>
@@ -3834,7 +3834,7 @@
         <item name="actionBarItemBackground">@drawable/kt_item_background</item>
         <item name="actionModeSplitBackground">@drawable/kt_action_mode_split_background</item>
         <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
-        <item name="toastFrameBackground">@drawable/ty_toast_frame</item>
+        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
         <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
         <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
         <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>

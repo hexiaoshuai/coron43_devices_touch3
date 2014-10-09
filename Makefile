@@ -157,7 +157,7 @@ override_property += \
 # The property decide your ID on the backend server which statistical data for your device.
 # You should configure the property according to your ID, ie, replace "Coron" with your ID.
 override_property += \
-    ro.baidu.romer=Coron_HXS
+    ro.baidu.romer=Coron_Hxs
 
 ##############################################################################
 # remove_property: this property will remove from the build.prop

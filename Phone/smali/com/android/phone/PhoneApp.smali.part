@@ -1,0 +1,939 @@
+.method private initForNewRadioTechnology()V
+    .locals 5
+
+    .prologue
+    .line 1300
+    sget-boolean v2, Lcom/android/phone/PhoneApp;->DBG:Z
+
+    if-eqz v2, :cond_0
+
+    const-string v2, "PhoneApp"
+
+    const-string v3, "initForNewRadioTechnology..."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1302
+    :cond_0
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v2}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    if-ne v2, v3, :cond_1
+
+    .line 1304
+    new-instance v2, Lcom/android/phone/CdmaPhoneCallState;
+
+    invoke-direct {v2}, Lcom/android/phone/CdmaPhoneCallState;-><init>()V
+
+    iput-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaPhoneCallState:Lcom/android/phone/CdmaPhoneCallState;
+
+    .line 1305
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaPhoneCallState:Lcom/android/phone/CdmaPhoneCallState;
+
+    invoke-virtual {v2}, Lcom/android/phone/CdmaPhoneCallState;->CdmaPhoneCallStateInit()V
+
+    .line 1307
+    :cond_1
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-static {v2}, Lcom/android/internal/telephony/TelephonyCapabilities;->supportsOtasp(Lcom/android/internal/telephony/Phone;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a
+
+    .line 1309
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaProvisionData:Lcom/android/phone/OtaUtils$CdmaOtaProvisionData;
+
+    if-nez v2, :cond_2
+
+    .line 1310
+    new-instance v2, Lcom/android/phone/OtaUtils$CdmaOtaProvisionData;
+
+    invoke-direct {v2}, Lcom/android/phone/OtaUtils$CdmaOtaProvisionData;-><init>()V
+
+    iput-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaProvisionData:Lcom/android/phone/OtaUtils$CdmaOtaProvisionData;
+
+    .line 1312
+    :cond_2
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaConfigData:Lcom/android/phone/OtaUtils$CdmaOtaConfigData;
+
+    if-nez v2, :cond_3
+
+    .line 1313
+    new-instance v2, Lcom/android/phone/OtaUtils$CdmaOtaConfigData;
+
+    invoke-direct {v2}, Lcom/android/phone/OtaUtils$CdmaOtaConfigData;-><init>()V
+
+    iput-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaConfigData:Lcom/android/phone/OtaUtils$CdmaOtaConfigData;
+
+    .line 1315
+    :cond_3
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaScreenState:Lcom/android/phone/OtaUtils$CdmaOtaScreenState;
+
+    if-nez v2, :cond_4
+
+    .line 1316
+    new-instance v2, Lcom/android/phone/OtaUtils$CdmaOtaScreenState;
+
+    invoke-direct {v2}, Lcom/android/phone/OtaUtils$CdmaOtaScreenState;-><init>()V
+
+    iput-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaScreenState:Lcom/android/phone/OtaUtils$CdmaOtaScreenState;
+
+    .line 1318
+    :cond_4
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaInCallScreenUiState:Lcom/android/phone/OtaUtils$CdmaOtaInCallScreenUiState;
+
+    if-nez v2, :cond_5
+
+    .line 1319
+    new-instance v2, Lcom/android/phone/OtaUtils$CdmaOtaInCallScreenUiState;
+
+    invoke-direct {v2}, Lcom/android/phone/OtaUtils$CdmaOtaInCallScreenUiState;-><init>()V
+
+    iput-object v2, p0, Lcom/android/phone/PhoneApp;->cdmaOtaInCallScreenUiState:Lcom/android/phone/OtaUtils$CdmaOtaInCallScreenUiState;
+
+    .line 1326
+    :cond_5
+    :goto_0
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->ringer:Lcom/android/phone/Ringer;
+
+    iget-object v3, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-virtual {v2, v3}, Lcom/android/phone/Ringer;->updateRingerContextAfterRadioTechnologyChange(Lcom/android/internal/telephony/Phone;)V
+
+    .line 1327
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->notifier:Lcom/android/phone/CallNotifier;
+
+    invoke-virtual {v2}, Lcom/android/phone/CallNotifier;->updateCallNotifierRegistrationsAfterRadioTechnologyChange()V
+
+    .line 1328
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->mBluetoothPhone:Landroid/bluetooth/IBluetoothHeadsetPhone;
+
+    if-eqz v2, :cond_6
+
+    .line 1330
+    :try_start_0
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->mBluetoothPhone:Landroid/bluetooth/IBluetoothHeadsetPhone;
+
+    invoke-interface {v2}, Landroid/bluetooth/IBluetoothHeadsetPhone;->updateBtHandsfreeAfterRadioTechnologyChange()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1335
+    :cond_6
+    :goto_1
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->mInCallScreen:Lcom/android/phone/InCallScreen;
+
+    if-eqz v2, :cond_7
+
+    .line 1336
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->mInCallScreen:Lcom/android/phone/InCallScreen;
+
+    invoke-virtual {v2}, Lcom/android/phone/InCallScreen;->updateAfterRadioTechnologyChange()V
+
+    .line 1340
+    :cond_7
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v2}, Lcom/android/internal/telephony/Phone;->getIccCard()Lcom/android/internal/telephony/IccCard;
+
+    move-result-object v1
+
+    .line 1341
+    .local v1, sim:Lcom/android/internal/telephony/IccCard;
+    if-eqz v1, :cond_9
+
+    .line 1342
+    sget-boolean v2, Lcom/android/phone/PhoneApp;->DBG:Z
+
+    if-eqz v2, :cond_8
+
+    const-string v2, "PhoneApp"
+
+    const-string v3, "Update registration for ICC status..."
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 1345
+    :cond_8
+    iget-object v2, p0, Lcom/android/phone/PhoneApp;->mHandler:Landroid/os/Handler;
+
+    const/4 v3, 0x3
+
+    const/4 v4, 0x0
+
+    invoke-interface {v1, v2, v3, v4}, Lcom/android/internal/telephony/IccCard;->registerForPersoLocked(Landroid/os/Handler;ILjava/lang/Object;)V
+
+    .line 1347
+    :cond_9
+    return-void
+
+    .line 1323
+    .end local v1           #sim:Lcom/android/internal/telephony/IccCard;
+    :cond_a
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->clearOtaState()V
+
+    goto :goto_0
+
+    .line 1331
+    :catch_0
+    move-exception v0
+
+    .line 1332
+    .local v0, e:Landroid/os/RemoteException;
+    const-string v2, "PhoneApp"
+
+    new-instance v3, Ljava/lang/Throwable;
+
+    invoke-direct {v3}, Ljava/lang/Throwable;-><init>()V
+
+    invoke-static {v3}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
+.method public onCreate()V
+    .locals 15
+
+    .prologue
+    const v14, 0x20000001
+
+    const/16 v13, 0x20
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    .line 465
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    .line 470
+    .local v6, resolver:Landroid/content/ContentResolver;
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f090011
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v8
+
+    sput-boolean v8, Lcom/android/phone/PhoneApp;->sVoiceCapable:Z
+
+    .line 477
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    if-nez v8, :cond_7
+
+    .line 479
+    invoke-static {p0}, Lcom/android/internal/telephony/PhoneFactory;->makeDefaultPhones(Landroid/content/Context;)V
+
+    .line 482
+    invoke-static {}, Lcom/android/internal/telephony/PhoneFactory;->getDefaultPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    .line 484
+    invoke-static {}, Lcom/android/internal/telephony/CallManager;->getInstance()Lcom/android/internal/telephony/CallManager;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mCM:Lcom/android/internal/telephony/CallManager;
+
+    .line 485
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mCM:Lcom/android/internal/telephony/CallManager;
+
+    iget-object v9, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-virtual {v8, v9}, Lcom/android/internal/telephony/CallManager;->registerPhone(Lcom/android/internal/telephony/Phone;)Z
+
+    .line 489
+    invoke-static {p0}, Lcom/android/phone/NotificationMgr;->init(Lcom/android/phone/PhoneApp;)Lcom/android/phone/NotificationMgr;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->notificationMgr:Lcom/android/phone/NotificationMgr;
+
+    .line 492
+    invoke-static {p0}, Lcom/android/phone/QuickBackToInCallScreen;->getInstance(Lcom/android/phone/PhoneApp;)Lcom/android/phone/QuickBackToInCallScreen;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mQuickBackToInCallScreen:Lcom/android/phone/QuickBackToInCallScreen;
+
+    .line 495
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-static {p0, v8}, Lcom/android/phone/BaiduExtPhoneInterfaceManager;->init(Lcom/android/phone/PhoneApp;Lcom/android/internal/telephony/Phone;)Lcom/android/phone/BaiduExtPhoneInterfaceManager;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->phoneMgr:Lcom/android/phone/PhoneInterfaceManager;
+
+    .line 498
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mHandler:Landroid/os/Handler;
+
+    const/16 v9, 0x11
+
+    invoke-virtual {v8, v9}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    .line 500
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v8}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
+
+    move-result v5
+
+    .line 502
+    .local v5, phoneType:I
+    const/4 v8, 0x2
+
+    if-ne v5, v8, :cond_0
+
+    .line 504
+    new-instance v8, Lcom/android/phone/CdmaPhoneCallState;
+
+    invoke-direct {v8}, Lcom/android/phone/CdmaPhoneCallState;-><init>()V
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->cdmaPhoneCallState:Lcom/android/phone/CdmaPhoneCallState;
+
+    .line 505
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->cdmaPhoneCallState:Lcom/android/phone/CdmaPhoneCallState;
+
+    invoke-virtual {v8}, Lcom/android/phone/CdmaPhoneCallState;->CdmaPhoneCallStateInit()V
+
+    .line 508
+    :cond_0
+    invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_b
+
+    .line 511
+    new-instance v8, Landroid/content/Intent;
+
+    const-class v9, Lcom/android/phone/BluetoothPhoneService;
+
+    invoke-direct {v8, p0, v9}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    invoke-virtual {p0, v8}, Lcom/android/phone/PhoneApp;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
+
+    .line 512
+    new-instance v8, Landroid/content/Intent;
+
+    const-class v9, Lcom/android/phone/BluetoothPhoneService;
+
+    invoke-direct {v8, p0, v9}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    iget-object v9, p0, Lcom/android/phone/PhoneApp;->mBluetoothPhoneConnection:Landroid/content/ServiceConnection;
+
+    invoke-virtual {p0, v8, v9, v12}, Lcom/android/phone/PhoneApp;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
+
+    .line 519
+    :goto_0
+    invoke-static {p0}, Lcom/android/phone/Ringer;->init(Landroid/content/Context;)Lcom/android/phone/Ringer;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->ringer:Lcom/android/phone/Ringer;
+
+    .line 522
+    const-string v8, "power"
+
+    invoke-virtual {p0, v8}, Lcom/android/phone/PhoneApp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/os/PowerManager;
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mPowerManager:Landroid/os/PowerManager;
+
+    .line 523
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mPowerManager:Landroid/os/PowerManager;
+
+    const/16 v9, 0x1a
+
+    const-string v10, "PhoneApp"
+
+    invoke-virtual {v8, v9, v10}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    .line 525
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mPowerManager:Landroid/os/PowerManager;
+
+    const-string v9, "PhoneApp"
+
+    invoke-virtual {v8, v14, v9}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mPartialWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    .line 527
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mPowerManager:Landroid/os/PowerManager;
+
+    const-string v9, "PSensor"
+
+    invoke-virtual {v8, v14, v9}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mPartialWakeLock4psensor:Landroid/os/PowerManager$WakeLock;
+
+    .line 530
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mPowerManager:Landroid/os/PowerManager;
+
+    invoke-virtual {v8, v13}, Landroid/os/PowerManager;->isWakeLockLevelSupported(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    .line 532
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mPowerManager:Landroid/os/PowerManager;
+
+    const-string v9, "PhoneApp"
+
+    invoke-virtual {v8, v13, v9}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mProximityWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    .line 535
+    :cond_1
+    sget-boolean v8, Lcom/android/phone/PhoneApp;->DBG:Z
+
+    if-eqz v8, :cond_2
+
+    const-string v8, "PhoneApp"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v10, "onCreate: mProximityWakeLock: "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/phone/PhoneApp;->mProximityWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 538
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->proximitySensorModeEnabled()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    .line 539
+    new-instance v8, Lcom/android/phone/AccelerometerListener;
+
+    invoke-direct {v8, p0, p0}, Lcom/android/phone/AccelerometerListener;-><init>(Landroid/content/Context;Lcom/android/phone/AccelerometerListener$OrientationListener;)V
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mAccelerometerListener:Lcom/android/phone/AccelerometerListener;
+
+    .line 542
+    :cond_3
+    const-string v8, "keyguard"
+
+    invoke-virtual {p0, v8}, Lcom/android/phone/PhoneApp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/app/KeyguardManager;
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mKeyguardManager:Landroid/app/KeyguardManager;
+
+    .line 546
+    const-string v8, "power"
+
+    invoke-static {v8}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mPowerManagerService:Landroid/os/IPowerManager;
+
+    .line 551
+    new-instance v8, Landroid/os/UpdateLock;
+
+    const-string v9, "phone"
+
+    invoke-direct {v8, v9}, Landroid/os/UpdateLock;-><init>(Ljava/lang/String;)V
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mUpdateLock:Landroid/os/UpdateLock;
+
+    .line 553
+    sget-boolean v8, Lcom/android/phone/PhoneApp;->DBG:Z
+
+    if-eqz v8, :cond_4
+
+    const-string v8, "PhoneApp"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v10, "onCreate: mUpdateLock: "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/phone/PhoneApp;->mUpdateLock:Landroid/os/UpdateLock;
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 558
+    :cond_4
+    invoke-static {p0}, Lcom/android/phone/CallController;->init(Lcom/android/phone/PhoneApp;)Lcom/android/phone/CallController;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->callController:Lcom/android/phone/CallController;
+
+    .line 561
+    invoke-static {p0}, Lcom/android/phone/InCallUiState;->init(Landroid/content/Context;)Lcom/android/phone/InCallUiState;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->inCallUiState:Lcom/android/phone/InCallUiState;
+
+    .line 567
+    invoke-static {p0}, Lcom/android/phone/CallerInfoCache;->init(Landroid/content/Context;)Lcom/android/phone/CallerInfoCache;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->callerInfoCache:Lcom/android/phone/CallerInfoCache;
+
+    .line 573
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    iget-object v9, p0, Lcom/android/phone/PhoneApp;->ringer:Lcom/android/phone/Ringer;
+
+    new-instance v10, Lcom/android/phone/CallLogAsync;
+
+    invoke-direct {v10}, Lcom/android/phone/CallLogAsync;-><init>()V
+
+    invoke-static {p0, v8, v9, v10}, Lcom/android/phone/CallNotifier;->init(Lcom/android/phone/PhoneApp;Lcom/android/internal/telephony/Phone;Lcom/android/phone/Ringer;Lcom/android/phone/CallLogAsync;)Lcom/android/phone/CallNotifier;
+
+    move-result-object v8
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->notifier:Lcom/android/phone/CallNotifier;
+
+    .line 576
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v8}, Lcom/android/internal/telephony/Phone;->getIccCard()Lcom/android/internal/telephony/IccCard;
+
+    move-result-object v7
+
+    .line 577
+    .local v7, sim:Lcom/android/internal/telephony/IccCard;
+    if-eqz v7, :cond_5
+
+    .line 579
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mHandler:Landroid/os/Handler;
+
+    const/4 v9, 0x3
+
+    invoke-interface {v7, v8, v9, v11}, Lcom/android/internal/telephony/IccCard;->registerForPersoLocked(Landroid/os/Handler;ILjava/lang/Object;)V
+
+    .line 583
+    :cond_5
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mCM:Lcom/android/internal/telephony/CallManager;
+
+    iget-object v9, p0, Lcom/android/phone/PhoneApp;->mHandler:Landroid/os/Handler;
+
+    const/16 v10, 0x34
+
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/internal/telephony/CallManager;->registerForMmiComplete(Landroid/os/Handler;ILjava/lang/Object;)V
+
+    .line 586
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mCM:Lcom/android/internal/telephony/CallManager;
+
+    invoke-static {v8}, Lcom/android/phone/PhoneUtils;->initializeConnectionHandler(Lcom/android/internal/telephony/CallManager;)V
+
+    .line 589
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f090004
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v8
+
+    iput-boolean v8, p0, Lcom/android/phone/PhoneApp;->mTtyEnabled:Z
+
+    .line 592
+    new-instance v3, Landroid/content/IntentFilter;
+
+    const-string v8, "android.intent.action.AIRPLANE_MODE"
+
+    invoke-direct {v3, v8}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    .line 594
+    .local v3, intentFilter:Landroid/content/IntentFilter;
+    const-string v8, "android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 595
+    const-string v8, "android.bluetooth.headset.profile.action.AUDIO_STATE_CHANGED"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 596
+    const-string v8, "android.intent.action.ANY_DATA_STATE"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 597
+    const-string v8, "android.intent.action.HEADSET_PLUG"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 598
+    const-string v8, "android.intent.action.DOCK_EVENT"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 599
+    const-string v8, "android.intent.action.BATTERY_LOW"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 600
+    const-string v8, "android.intent.action.SIM_STATE_CHANGED"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 601
+    const-string v8, "android.intent.action.RADIO_TECHNOLOGY"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 602
+    const-string v8, "android.intent.action.SERVICE_STATE"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 603
+    const-string v8, "android.intent.action.EMERGENCY_CALLBACK_MODE_CHANGED"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 604
+    iget-boolean v8, p0, Lcom/android/phone/PhoneApp;->mTtyEnabled:Z
+
+    if-eqz v8, :cond_6
+
+    .line 605
+    const-string v8, "com.android.internal.telephony.cdma.intent.action.TTY_PREFERRED_MODE_CHANGE"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 607
+    :cond_6
+    const-string v8, "android.media.RINGER_MODE_CHANGED"
+
+    invoke-virtual {v3, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    .line 608
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {p0, v8, v3}, Lcom/android/phone/PhoneApp;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 613
+    new-instance v4, Landroid/content/IntentFilter;
+
+    const-string v8, "android.intent.action.MEDIA_BUTTON"
+
+    invoke-direct {v4, v8}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    .line 619
+    .local v4, mediaButtonIntentFilter:Landroid/content/IntentFilter;
+    const/4 v8, 0x1
+
+    invoke-virtual {v4, v8}, Landroid/content/IntentFilter;->setPriority(I)V
+
+    .line 621
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mMediaButtonReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {p0, v8, v4}, Lcom/android/phone/PhoneApp;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    .line 623
+    const-string v8, "audio"
+
+    invoke-virtual {p0, v8}, Lcom/android/phone/PhoneApp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/media/AudioManager;
+
+    .line 624
+    .local v0, am:Landroid/media/AudioManager;
+    new-instance v8, Landroid/content/ComponentName;
+
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    const-class v10, Lcom/android/phone/PhoneApp$MediaButtonBroadcastReceiver;
+
+    invoke-virtual {v10}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v8, v9, v10}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v8}, Landroid/media/AudioManager;->registerMediaButtonEventReceiverForCalls(Landroid/content/ComponentName;)V
+
+    .line 628
+    const v8, 0x7f05000f
+
+    invoke-static {p0, v8, v12}, Landroid/preference/PreferenceManager;->setDefaultValues(Landroid/content/Context;IZ)V
+
+    .line 630
+    const v8, 0x7f050002
+
+    invoke-static {p0, v8, v12}, Landroid/preference/PreferenceManager;->setDefaultValues(Landroid/content/Context;IZ)V
+
+    .line 635
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mCM:Lcom/android/internal/telephony/CallManager;
+
+    invoke-static {v8}, Lcom/android/phone/PhoneUtils;->setAudioMode(Lcom/android/internal/telephony/CallManager;)V
+
+    .line 638
+    .end local v0           #am:Landroid/media/AudioManager;
+    .end local v3           #intentFilter:Landroid/content/IntentFilter;
+    .end local v4           #mediaButtonIntentFilter:Landroid/content/IntentFilter;
+    .end local v5           #phoneType:I
+    .end local v7           #sim:Lcom/android/internal/telephony/IccCard;
+    :cond_7
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-static {v8}, Lcom/android/internal/telephony/TelephonyCapabilities;->supportsOtasp(Lcom/android/internal/telephony/Phone;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    .line 639
+    new-instance v8, Lcom/android/phone/OtaUtils$CdmaOtaProvisionData;
+
+    invoke-direct {v8}, Lcom/android/phone/OtaUtils$CdmaOtaProvisionData;-><init>()V
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->cdmaOtaProvisionData:Lcom/android/phone/OtaUtils$CdmaOtaProvisionData;
+
+    .line 640
+    new-instance v8, Lcom/android/phone/OtaUtils$CdmaOtaConfigData;
+
+    invoke-direct {v8}, Lcom/android/phone/OtaUtils$CdmaOtaConfigData;-><init>()V
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->cdmaOtaConfigData:Lcom/android/phone/OtaUtils$CdmaOtaConfigData;
+
+    .line 641
+    new-instance v8, Lcom/android/phone/OtaUtils$CdmaOtaScreenState;
+
+    invoke-direct {v8}, Lcom/android/phone/OtaUtils$CdmaOtaScreenState;-><init>()V
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->cdmaOtaScreenState:Lcom/android/phone/OtaUtils$CdmaOtaScreenState;
+
+    .line 642
+    new-instance v8, Lcom/android/phone/OtaUtils$CdmaOtaInCallScreenUiState;
+
+    invoke-direct {v8}, Lcom/android/phone/OtaUtils$CdmaOtaInCallScreenUiState;-><init>()V
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->cdmaOtaInCallScreenUiState:Lcom/android/phone/OtaUtils$CdmaOtaInCallScreenUiState;
+
+    .line 646
+    :cond_8
+    const-string v8, "content://icc/adn"
+
+    invoke-static {v8}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v8
+
+    invoke-virtual {v6, v8}, Landroid/content/ContentResolver;->getType(Landroid/net/Uri;)Ljava/lang/String;
+
+    .line 649
+    iput-boolean v12, p0, Lcom/android/phone/PhoneApp;->mShouldRestoreMuteOnInCallResume:Z
+
+    .line 658
+    iget-boolean v8, p0, Lcom/android/phone/PhoneApp;->mTtyEnabled:Z
+
+    if-eqz v8, :cond_9
+
+    .line 659
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v8}, Lcom/android/internal/telephony/Phone;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string v9, "preferred_tty_mode"
+
+    invoke-static {v8, v9, v12}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v8
+
+    iput v8, p0, Lcom/android/phone/PhoneApp;->mPreferredTtyMode:I
+
+    .line 663
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->mHandler:Landroid/os/Handler;
+
+    iget-object v9, p0, Lcom/android/phone/PhoneApp;->mHandler:Landroid/os/Handler;
+
+    const/16 v10, 0xe
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    .line 666
+    :cond_9
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    const v9, 0x7f090005
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_a
+
+    .line 667
+    iget-object v8, p0, Lcom/android/phone/PhoneApp;->phone:Lcom/android/internal/telephony/Phone;
+
+    invoke-interface {v8}, Lcom/android/internal/telephony/Phone;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v8
+
+    const-string v9, "hearing_aid"
+
+    invoke-static {v8, v9, v12}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    .line 670
+    .local v2, hac:I
+    const-string v8, "audio"
+
+    invoke-virtual {p0, v8}, Lcom/android/phone/PhoneApp;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/media/AudioManager;
+
+    .line 671
+    .local v1, audioManager:Landroid/media/AudioManager;
+    const-string v9, "HACSetting"
+
+    if-eqz v2, :cond_c
+
+    const-string v8, "ON"
+
+    :goto_1
+    invoke-virtual {v1, v9, v8}, Landroid/media/AudioManager;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 676
+    .end local v1           #audioManager:Landroid/media/AudioManager;
+    .end local v2           #hac:I
+    :cond_a
+    invoke-virtual {p0}, Lcom/android/phone/PhoneApp;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v8
+
+    iget-object v8, v8, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    iput-object v8, p0, Lcom/android/phone/PhoneApp;->mCurrentLocale:Ljava/util/Locale;
+
+    .line 677
+    return-void
+
+    .line 516
+    .restart local v5       #phoneType:I
+    :cond_b
+    iput-object v11, p0, Lcom/android/phone/PhoneApp;->mBluetoothPhone:Landroid/bluetooth/IBluetoothHeadsetPhone;
+
+    goto/16 :goto_0
+
+    .line 671
+    .end local v5           #phoneType:I
+    .restart local v1       #audioManager:Landroid/media/AudioManager;
+    .restart local v2       #hac:I
+    :cond_c
+    const-string v8, "OFF"
+
+    goto :goto_1
+.end method
