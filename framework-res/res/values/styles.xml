@@ -3398,143 +3398,28 @@
     <style name="TextAppearance.DeviceDefault.Light.SearchResult.Title" parent="@style/TextAppearance.Holo.Light.SearchResult.Title" />
     <style name="TextAppearance.DeviceDefault.Light.Small" parent="@style/TextAppearance.Holo.Light.Small" />
     <style name="Theme.Holo.TY" parent="@style/Theme.Holo">
-        <item name="buttonStyle">@style/Widget.Holo.Button.TY</item>
-        <item name="buttonStyleSmall">@style/KTButtonStyleSmall</item>
-        <item name="windowBackground">@color/black</item>
-        <item name="panelBackground">@drawable/kt_menu_hardkey_panel</item>
-        <item name="panelFullBackground">@drawable/kt_menu_background_fill_parent_width</item>
-        <item name="dropDownListViewStyle">@style/KTDropDownListViewStyle</item>
-        <item name="imageButtonStyle">@style/KTImageButtonStyle</item>
-        <item name="listViewStyle">@style/ListView.TY</item>
-        <item name="popupWindowStyle">@style/KTPopupWindowStyle</item>
-        <item name="progressBarStyleHorizontal">@style/KTProgressBarStyleHorizontal</item>
-        <item name="seekBarStyle">@style/Widget.Holo.SeekBar.TY</item>
-        <item name="spinnerStyle">@style/TY.Widget.Holo.Spinner</item>
-        <item name="tabWidgetStyle">@style/TabWidget.TY</item>
-        <item name="textColorHighlight">@color/kt_text_color_highlight</item>
-        <item name="textColorHint">@color/kt_text_color_hint</item>
-        <item name="listSelector">@drawable/kt_list_selector</item>
-        <item name="listChoiceIndicatorSingle">@drawable/ty_btn_radio_selector</item>
-        <item name="listChoiceIndicatorMultiple">@drawable/ty_btn_check_selector</item>
-        <item name="textSelectHandleLeft">@drawable/ty_text_select_handle_left</item>
-        <item name="textSelectHandleRight">@drawable/ty_text_select_handle_right</item>
-        <item name="textSelectHandle">@drawable/ty_text_select_handle_middle</item>
-        <item name="actionBarStyle">@style/TYActionBar</item>
-        <item name="dropDownSpinnerStyle">@style/TY.Widget.Holo.Spinner</item>
-        <item name="actionDropDownStyle">@style/Widget.Holo.Spinner.DropDown.ActionBar.TY</item>
-        <item name="actionButtonStyle">@style/KTActionButton</item>
-        <item name="actionModeBackground">@drawable/kt_action_mode_background</item>
-        <item name="actionModeCloseDrawable">@drawable/kt_ic_cab_done</item>
-        <item name="listChoiceBackgroundIndicator">@drawable/ty_list_selector_holo_dark</item>
-        <item name="actionBarTabStyle">@style/Widget.Holo.ActionBar.TabView.TY</item>
-        <item name="actionBarTabBarStyle">@style/Widget.Holo.ActionBar.TabBar.TY</item>
-        <item name="actionBarTabTextStyle">@style/Widget.Holo.ActionBar.TabText.TY</item>
-        <item name="actionModeCloseButtonStyle">@style/KTActionModeCloseButton</item>
-        <item name="activatedBackgroundIndicator">@drawable/ty_activated_background_holo_dark</item>
-        <item name="listPopupWindowStyle">@style/KTListPopupWindowStyle</item>
-        <item name="popupMenuStyle">@style/KTListPopupWindowStyle</item>
-        <item name="dialogTheme">@style/KTDialogTheme</item>
-        <item name="alertDialogTheme">@style/Theme.Holo.AlertDialog.TY</item>
-        <item name="homeAsUpIndicator">@drawable/ty_ic_ab_back_holo_dark</item>
-        <item name="selectableItemBackground">@drawable/ty_item_background_holo_dark</item>
-        <item name="actionModeCutDrawable">@drawable/kt_ic_menu_cut</item>
-        <item name="actionModeCopyDrawable">@drawable/kt_ic_menu_copy</item>
-        <item name="actionModePasteDrawable">@drawable/kt_ic_menu_paste</item>
-        <item name="fastScrollThumbDrawable">@drawable/ty_fastscroll_thumb_holo</item>
-        <item name="fastScrollPreviewBackgroundLeft">@drawable/ty_fastscroll_label_left_holo_dark</item>
-        <item name="fastScrollPreviewBackgroundRight">@drawable/ty_fastscroll_label_right_holo_dark</item>
-        <item name="fastScrollTrackDrawable">@drawable/ty_fastscroll_track_holo_dark</item>
-        <item name="editTextBackground">@drawable/ty_edit_text_holo_dark</item>
-        <item name="textCursorDrawable">@drawable/kt_text_cursor</item>
-        <item name="actionModeSelectAllDrawable">@drawable/kt_ic_menu_selectall</item>
-        <item name="actionModeStyle">@style/KTActionMode</item>
-        <item name="actionBarItemBackground">@drawable/kt_item_background</item>
-        <item name="actionModeSplitBackground">@drawable/kt_action_mode_split_background</item>
-        <item name="panelMenuListTheme">@style/KTCompactMenu</item>
-        <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
-        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
-        <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
-        <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
-        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Holo.NoActionBar.TY" parent="@style/Theme.Holo.TY">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Holo.DialogWhenLarge.TY" parent="@style/Theme.Holo.TY">
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Holo.Dialog.NoActionBar.TY" parent="@style/Theme.Holo.Dialog.TY">
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Holo.Panel.TY" parent="@style/Theme.Holo.TY">
-        <item name="windowBackground">@color/transparent</item>
-        <item name="windowFrame">@null</item>
-        <item name="windowNoTitle">true</item>
-        <item name="windowIsFloating">true</item>
-        <item name="windowIsTranslucent">true</item>
-        <item name="windowContentOverlay">@null</item>
-        <item name="windowAnimationStyle">@null</item>
-        <item name="backgroundDimEnabled">false</item>
-        <item name="colorBackgroundCacheHint">@null</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Light.Small.Inverse" parent="@style/TextAppearance.Holo.Light.Small.Inverse" />
     <style name="Theme.Dialog.TY" parent="@style/Theme.Holo.Dialog.TY">
-        <item name="windowBackground">@drawable/ty_dialog_full_holo_dark</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Holo.Wallpaper.NoTitleBar.TY" parent="@style/Theme.Holo.TY">
-        <item name="windowNoTitle">true</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Translucent.NoTitleBar.TY" parent="@style/Theme.Holo.TY">
-        <item name="windowNoTitle">true</item>
-        <item name="windowContentOverlay">@null</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.NoTitleBar.TY" parent="@style/Theme.Holo.TY">
-        <item name="windowNoTitle">true</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Light.Widget.Button" parent="@style/TextAppearance.Holo.Light.Widget.Button" />
     <style name="Theme.Holo.Dialog.TY" parent="@style/Theme.Holo.Dialog">
-        <item name="buttonStyle">@style/Widget.Holo.Button.TY</item>
-        <item name="windowBackground">@drawable/ty_dialog_full_holo_dark</item>
-        <item name="windowTitleStyle">@style/KTTitleTextStyle</item>
-        <item name="listViewStyle">@style/ListView.TY</item>
-        <item name="seekBarStyle">@style/Widget.Holo.SeekBar.TY</item>
-        <item name="tabWidgetStyle">@style/TabWidget.TY</item>
-        <item name="listChoiceIndicatorSingle">@drawable/ty_btn_radio_selector</item>
-        <item name="listChoiceIndicatorMultiple">@drawable/ty_btn_check_selector</item>
-        <item name="textSelectHandleLeft">@drawable/ty_text_select_handle_left</item>
-        <item name="textSelectHandleRight">@drawable/ty_text_select_handle_right</item>
-        <item name="textSelectHandle">@drawable/ty_text_select_handle_middle</item>
-        <item name="dropDownSpinnerStyle">@style/TY.Widget.Holo.Spinner</item>
-        <item name="listChoiceBackgroundIndicator">@drawable/ty_list_selector_holo_dark</item>
-        <item name="alertDialogTheme">@style/Theme.Holo.AlertDialog.TY</item>
-        <item name="selectableItemBackground">@drawable/ty_item_background_holo_dark</item>
-        <item name="fastScrollThumbDrawable">@drawable/ty_fastscroll_thumb_holo</item>
-        <item name="fastScrollPreviewBackgroundLeft">@drawable/ty_fastscroll_label_left_holo_dark</item>
-        <item name="fastScrollPreviewBackgroundRight">@drawable/ty_fastscroll_label_right_holo_dark</item>
-        <item name="fastScrollTrackDrawable">@drawable/ty_fastscroll_track_holo_dark</item>
-        <item name="editTextBackground">@drawable/ty_edit_text_holo_dark</item>
-        <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
-        <item name="dialogTitleDecorLayout">@layout/ty_dialog_title_holo</item>
-        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
-        <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
-        <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
-        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Holo.Dialog.NoActionBar.MinWidth.TY" parent="@style/Theme.Holo.Dialog.NoActionBar.TY">
-        <item name="windowMinWidthMajor">@dimen/dialog_min_width_major</item>
-        <item name="windowMinWidthMinor">@dimen/dialog_min_width_minor</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Light.Widget.PopupMenu.Large" parent="@style/TextAppearance.Holo.Light.Widget.PopupMenu.Large" />
     <style name="TextAppearance.DeviceDefault.Light.Widget.PopupMenu.Small" parent="@style/TextAppearance.Holo.Light.Widget.PopupMenu.Small" />
@@ -3724,214 +3609,68 @@
     <style name="Theme.DeviceDefault.Dialog.Presentation" parent="@style/Theme.Holo.Dialog.Presentation" />
     <style name="Theme.DeviceDefault.Light.Dialog.Presentation" parent="@style/Theme.Holo.Light.Dialog.Presentation" />
     <style name="Theme.DeviceDefault.Dialog.Alert" parent="@style/Theme.Holo.Dialog.Alert">
-        <item name="windowTitleStyle">@style/DialogWindowTitle.DeviceDefault</item>
     </style>
     <style name="Theme.DeviceDefault.Light.Dialog.Alert" parent="@style/Theme.Holo.Light.Dialog.Alert">
-        <item name="windowTitleStyle">@style/DialogWindowTitle.DeviceDefault.Light</item>
     </style>
     <style name="Theme.DeviceDefault.SearchBar" parent="@style/Theme.Holo.SearchBar" />
     <style name="Theme.DeviceDefault.Light.SearchBar" parent="@style/Theme.Holo.Light.SearchBar" />
     <style name="Theme.DeviceDefault.Dialog.NoFrame" parent="@style/Theme.Holo.Dialog.NoFrame" />
     <style name="Theme.Black.NoTitleBar.Fullscreen.TY" parent="@style/Theme.Holo.TY">
-        <item name="windowContentOverlay">@null</item>
-        <item name="windowFullscreen">true</item>
     </style>
     <style name="Theme.Holo.Dialog.Alert.TY" parent="@style/Theme.Holo.AlertDialog.TY">
-        <item name="alertDialogTheme">@style/Theme.Holo.AlertDialog.TY</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="Theme.Dialog.Alert.TY" parent="@style/Theme.Holo.AlertDialog.TY">
-        <item name="alertDialogTheme">@style/Theme.Holo.AlertDialog.TY</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="KTCompactMenu" parent="@style/Theme.Holo.CompactMenu">
-        <item name="listViewStyle">@style/ListView.TY</item>
     </style>
     <style name="TYActionBar" parent="@style/Widget.Holo.ActionBar">
-        <item name="background">@drawable/ty_actionbar_bg</item>
-        <item name="titleTextStyle">@style/KTTitleTextStyle</item>
-        <item name="subtitleTextStyle">@style/KTSubtitleTextStyle</item>
     </style>
     <style name="KTActionMode" parent="@style/Widget.Holo.ActionMode">
-        <item name="background">@drawable/kt_action_mode_background</item>
-        <item name="titleTextStyle">@style/KTTitleTextStyle</item>
-        <item name="subtitleTextStyle">@style/KTSubtitleTextStyle</item>
-        <item name="backgroundSplit">@drawable/kt_action_mode_split_background</item>
     </style>
     <style name="KTActionModeCloseButton" parent="@style/Widget.Holo.ActionButton.CloseMode">
-        <item name="background">@drawable/kt_btn_cab_done</item>
     </style>
     <style name="Theme.Holo.AlertDialog.TY" parent="@style/Theme.Holo.Dialog.Alert">
-        <item name="buttonStyle">@style/Widget.Holo.Button.TY</item>
-        <item name="alertDialogStyle">@style/AlertDialog.Holo.TY</item>
-        <item name="listViewStyle">@style/ListView.TY</item>
-        <item name="seekBarStyle">@style/Widget.Holo.SeekBar.TY</item>
-        <item name="tabWidgetStyle">@style/TabWidget.TY</item>
-        <item name="listChoiceIndicatorSingle">@drawable/ty_btn_radio_selector</item>
-        <item name="listChoiceIndicatorMultiple">@drawable/ty_btn_check_selector</item>
-        <item name="textSelectHandleLeft">@drawable/ty_text_select_handle_left</item>
-        <item name="textSelectHandleRight">@drawable/ty_text_select_handle_right</item>
-        <item name="textSelectHandle">@drawable/ty_text_select_handle_middle</item>
-        <item name="actionBarStyle">@style/TYActionBar</item>
-        <item name="dropDownSpinnerStyle">@style/TY.Widget.Holo.Spinner</item>
-        <item name="actionButtonStyle">@style/KTActionButton</item>
-        <item name="actionModeBackground">@drawable/kt_action_mode_background</item>
-        <item name="actionModeCloseDrawable">@drawable/kt_ic_cab_done</item>
-        <item name="listChoiceBackgroundIndicator">@drawable/ty_list_selector_holo_dark</item>
-        <item name="actionModeCloseButtonStyle">@style/KTActionModeCloseButton</item>
-        <item name="selectableItemBackground">@drawable/ty_item_background_holo_dark</item>
-        <item name="actionModeCutDrawable">@drawable/kt_ic_menu_cut</item>
-        <item name="actionModeCopyDrawable">@drawable/kt_ic_menu_copy</item>
-        <item name="actionModePasteDrawable">@drawable/kt_ic_menu_paste</item>
-        <item name="fastScrollThumbDrawable">@drawable/ty_fastscroll_thumb_holo</item>
-        <item name="fastScrollPreviewBackgroundLeft">@drawable/ty_fastscroll_label_left_holo_dark</item>
-        <item name="fastScrollPreviewBackgroundRight">@drawable/ty_fastscroll_label_right_holo_dark</item>
-        <item name="fastScrollTrackDrawable">@drawable/ty_fastscroll_track_holo_dark</item>
-        <item name="editTextBackground">@drawable/ty_edit_text_holo_dark</item>
-        <item name="actionModeSelectAllDrawable">@drawable/kt_ic_menu_selectall</item>
-        <item name="actionModeStyle">@style/KTActionMode</item>
-        <item name="actionBarItemBackground">@drawable/kt_item_background</item>
-        <item name="actionModeSplitBackground">@drawable/kt_action_mode_split_background</item>
-        <item name="listPreferredItemPaddingLeft">@dimen/ty_alert_dialog_padding_horizontal</item>
-        <item name="listPreferredItemPaddingRight">@dimen/ty_alert_dialog_padding_horizontal</item>
-        <item name="listPreferredItemPaddingStart">@dimen/ty_alert_dialog_padding_horizontal</item>
-        <item name="listPreferredItemPaddingEnd">@dimen/ty_alert_dialog_padding_horizontal</item>
-        <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
-        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
-        <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
-        <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
-        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="KTDialogTheme" parent="@style/Theme.Holo.Dialog">
-        <item name="buttonStyle">@style/Widget.Holo.Button.TY</item>
-        <item name="listViewStyle">@style/ListView.TY</item>
-        <item name="seekBarStyle">@style/Widget.Holo.SeekBar.TY</item>
-        <item name="tabWidgetStyle">@style/TabWidget.TY</item>
-        <item name="listChoiceIndicatorSingle">@drawable/ty_btn_radio_selector</item>
-        <item name="listChoiceIndicatorMultiple">@drawable/ty_btn_check_selector</item>
-        <item name="textSelectHandleLeft">@drawable/ty_text_select_handle_left</item>
-        <item name="textSelectHandleRight">@drawable/ty_text_select_handle_right</item>
-        <item name="textSelectHandle">@drawable/ty_text_select_handle_middle</item>
-        <item name="actionBarStyle">@style/TYActionBar</item>
-        <item name="dropDownSpinnerStyle">@style/TY.Widget.Holo.Spinner</item>
-        <item name="actionButtonStyle">@style/KTActionButton</item>
-        <item name="actionModeBackground">@drawable/kt_action_mode_background</item>
-        <item name="actionModeCloseDrawable">@drawable/kt_ic_cab_done</item>
-        <item name="listChoiceBackgroundIndicator">@drawable/ty_list_selector_holo_dark</item>
-        <item name="actionModeCloseButtonStyle">@style/KTActionModeCloseButton</item>
-        <item name="selectableItemBackground">@drawable/ty_item_background_holo_dark</item>
-        <item name="actionModeCutDrawable">@drawable/kt_ic_menu_cut</item>
-        <item name="actionModeCopyDrawable">@drawable/kt_ic_menu_copy</item>
-        <item name="actionModePasteDrawable">@drawable/kt_ic_menu_paste</item>
-        <item name="fastScrollThumbDrawable">@drawable/ty_fastscroll_thumb_holo</item>
-        <item name="fastScrollPreviewBackgroundLeft">@drawable/ty_fastscroll_label_left_holo_dark</item>
-        <item name="fastScrollPreviewBackgroundRight">@drawable/ty_fastscroll_label_right_holo_dark</item>
-        <item name="fastScrollTrackDrawable">@drawable/ty_fastscroll_track_holo_dark</item>
-        <item name="editTextBackground">@drawable/ty_edit_text_holo_dark</item>
-        <item name="actionModeSelectAllDrawable">@drawable/kt_ic_menu_selectall</item>
-        <item name="actionModeStyle">@style/KTActionMode</item>
-        <item name="actionBarItemBackground">@drawable/kt_item_background</item>
-        <item name="actionModeSplitBackground">@drawable/kt_action_mode_split_background</item>
-        <item name="quickContactBadgeOverlay">@drawable/ty_quickcontact_badge_overlay_dark</item>
-        <item name="toastFrameBackground">@drawable/toast_frame_holo</item>
-        <item name="searchViewSearchIcon">@drawable/ty_ic_search</item>
-        <item name="searchViewTextField">@drawable/ty_textfield_searchview_holo_dark</item>
-        <item name="switchStyle">@style/Widget.Holo.CompoundButton.Switch.TY</item>
-        <item name="ktStyle">true</item>
     </style>
     <style name="ListView.TY" parent="@style/Widget.Holo.ListView">
-        <item name="listSelector">@drawable/kt_list_selector</item>
-        <item name="divider">@drawable/ty_list_divider</item>
     </style>
     <style name="AlertDialog.Holo.TY" parent="@style/AlertDialog.Holo">
-        <item name="fullDark">@drawable/ty_dialog_full_holo_dark</item>
-        <item name="topDark">@drawable/ty_dialog_top_holo_dark</item>
-        <item name="centerDark">@drawable/ty_dialog_middle_holo_dark</item>
-        <item name="bottomDark">@drawable/ty_dialog_bottom_holo_dark</item>
-        <item name="fullBright">@drawable/ty_dialog_full_holo_dark</item>
-        <item name="topBright">@drawable/ty_dialog_top_holo_dark</item>
-        <item name="centerBright">@drawable/ty_dialog_middle_holo_dark</item>
-        <item name="bottomBright">@drawable/ty_dialog_bottom_holo_dark</item>
-        <item name="bottomMedium">@drawable/ty_dialog_bottom_holo_dark</item>
-        <item name="centerMedium">@drawable/ty_dialog_middle_holo_dark</item>
-        <item name="layout">@layout/ty_alert_dialog_holo</item>
-        <item name="listLayout">@layout/ty_select_dialog_holo</item>
-        <item name="multiChoiceItemLayout">@layout/ty_select_dialog_multichoice_holo</item>
-        <item name="singleChoiceItemLayout">@layout/ty_select_dialog_singlechoice_holo</item>
-        <item name="listItemLayout">@layout/ty_select_dialog_item_holo</item>
-        <item name="progressLayout">@layout/ty_progress_dialog_holo</item>
-        <item name="horizontalProgressLayout">@layout/ty_alert_dialog_progress_holo</item>
-        <item name="ktAlert">true</item>
     </style>
     <style name="Widget.Holo.Button.TY" parent="@style/Widget.Button">
-        <item name="textAppearance">?textAppearanceMedium</item>
-        <item name="textColor">@color/primary_text_holo_dark</item>
-        <item name="background">@drawable/ty_btn_selector</item>
-        <item name="minWidth">64.0dip</item>
-        <item name="minHeight">48.0dip</item>
     </style>
     <style name="KTButtonStyleSmall" parent="@style/Widget.Holo.Button.Small">
-        <item name="background">@drawable/ty_btn_selector</item>
     </style>
     <style name="KTImageButtonStyle" parent="@style/Widget.Holo.ImageButton">
-        <item name="background">@drawable/ty_btn_selector</item>
     </style>
     <style name="TY.Widget.Holo.Spinner" parent="@style/Widget.Holo.Spinner">
-        <item name="background">@drawable/ty_spinner_background_holo_dark</item>
-        <item name="dropDownSelector">@drawable/kt_list_selector</item>
-        <item name="popupBackground">@drawable/kt_menu_dropdown_panel</item>
     </style>
     <style name="KTActionButton" parent="@style/Widget.Holo.ActionButton">
-        <item name="background">@drawable/kt_item_background</item>
     </style>
     <style name="KTTitleTextStyle" parent="@style/TextAppearance.Holo.Widget.ActionBar.Title">
-        <item name="textSize">@dimen/text_primary_size</item>
-        <item name="textColor">@color/kt_text_color_white</item>
     </style>
     <style name="KTSubtitleTextStyle" parent="@style/TextAppearance.Holo.Widget.ActionBar.Subtitle">
-        <item name="textSize">@dimen/text_tertiary_size</item>
-        <item name="textColor">@color/kt_text_color_graygreen</item>
     </style>
     <style name="TabWidget.TY" parent="@style/Widget.Holo.TabWidget">
-        <item name="divider">@null</item>
-        <item name="tabLayout">@layout/ty_tab_indicator</item>
     </style>
     <style name="Widget.Holo.CompoundButton.Switch.TY" parent="@style/Widget.Holo.CompoundButton.Switch">
-        <item name="thumb">@drawable/ty_switch_inner_holo_dark</item>
-        <item name="track">@drawable/ty_switch_track_holo_dark</item>
     </style>
     <style name="Widget.Holo.SeekBar.TY" parent="@style/Widget.Holo.SeekBar">
-        <item name="indeterminateDrawable">@drawable/kt_progress_indeterminate_horizontal</item>
-        <item name="progressDrawable">@drawable/ty_scrubber_progress_horizontal_holo_dark</item>
-        <item name="thumb">@drawable/ty_scrubber_control_selector_holo</item>
     </style>
     <style name="KTProgressBarStyleHorizontal" parent="@style/Widget.Holo.ProgressBar.Horizontal">
-        <item name="indeterminateDrawable">@drawable/kt_progress_indeterminate_horizontal</item>
-        <item name="progressDrawable">@drawable/ty_progress_horizontal_layerlist</item>
     </style>
     <style name="Widget.Holo.Spinner.DropDown.ActionBar.TY" parent="@style/Widget.Holo.Spinner.DropDown.ActionBar">
-        <item name="background">@drawable/ty_spinner_ab_holo_dark</item>
     </style>
     <style name="KTDropDownListViewStyle" parent="@style/Widget.Holo.ListView.DropDown">
-        <item name="listSelector">@drawable/kt_list_selector</item>
     </style>
     <style name="KTListPopupWindowStyle" parent="@style/Widget.Holo.ListPopupWindow">
-        <item name="dropDownSelector">@drawable/kt_list_selector</item>
-        <item name="popupBackground">@drawable/kt_menu_dropdown_panel</item>
     </style>
     <style name="KTPopupWindowStyle" parent="@style/Widget.Holo.PopupWindow">
-        <item name="popupBackground">@drawable/kt_menu_dropdown_panel</item>
     </style>
     <style name="Widget.Holo.ActionBar.TabView.TY" parent="@style/Widget.Holo.ActionBar.TabView">
-        <item name="background">@drawable/ty_tab_indicator</item>
     </style>
     <style name="Widget.Holo.ActionBar.TabBar.TY" parent="@style/Widget.Holo.ActionBar.TabBar">
-        <item name="divider">@null</item>
-        <item name="showDividers">middle</item>
-        <item name="dividerPadding">0.0dip</item>
     </style>
     <style name="Widget.Holo.ActionBar.TabText.TY" parent="@style/Widget.Holo.ActionBar.TabText">
-        <item name="textSize">18.0dip</item>
     </style>
 </resources>

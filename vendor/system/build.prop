@@ -53,7 +53,6 @@ persist.sys.ssr.restart_level=enable
 ro.display.mms.recipient.photo=true
 debug.camera.stopasync=true
 ro.front.cam.hdr.disable=true
-ro.ty.supper.large.font=true
 ro.ty.phonenumlocation=true
 ro.ty.mobile.sound.support=true
 ro.ty.setting.poweronoffsounds=true
@@ -68,11 +67,9 @@ persist.env.mms.setupmmsdata=true
 persist.env.c.phone.networkmode=2
 persist.env.c.sb.style=3
 ro.ty.usb.charging.config=serial_smd,serial_tty,mass_storage
-ro.ty.theme.dark=1
 ro.com.android.mobiledata=false
 ro.ty.tyringtone.support=true
 persist.env.c.phone.matchnum=11
-ro.ty.sogou.input.support=true
 ro.build.version.tyuarelease=K-Touch Tou ch3/TBT595712_9272_V0001
 ro.build.version.tyuadate=20131108
 # end build properties
@@ -263,11 +260,3 @@ ro.qc.sdk.izat.premium_enabled=1
 ro.qc.sdk.izat.service_mask=0x5
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
-
-# begin fota properties
-ro.fota.platform=MSM8926
-ro.fota.type=phone
-ro.fota.oem=ktouch8926
-ro.fota.device=K-Touch Tou ch3
-ro.fota.version=TBT595719_9279_V0919
-# end fota properties
