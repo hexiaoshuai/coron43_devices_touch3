@@ -67,7 +67,7 @@
     move-result-object v1
 
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mLockPatternUtils-b06f1e(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$1200(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object v2
 
@@ -81,7 +81,7 @@
     move-result-object v3
 
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mCallback:Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityCallback;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mCallback-b1b733(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityCallback;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$1900(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/KeyguardSecurityCallback;
 
     move-result-object v4
 
@@ -137,7 +137,7 @@
     .local v1, i:I
     :goto_0
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mAppWidgetContainer:Lcom/android/internal/policy/impl/keyguard/KeyguardWidgetPager;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mAppWidgetContainer-97f13e(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/KeyguardWidgetPager;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$700(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/KeyguardWidgetPager;
 
     move-result-object v2
 
@@ -149,7 +149,7 @@
 
     .line 1648
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mAppWidgetContainer:Lcom/android/internal/policy/impl/keyguard/KeyguardWidgetPager;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mAppWidgetContainer-97f13e(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/KeyguardWidgetPager;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$700(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Lcom/android/internal/policy/impl/keyguard/KeyguardWidgetPager;
 
     move-result-object v2
 

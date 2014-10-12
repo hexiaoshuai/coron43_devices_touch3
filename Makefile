@@ -104,7 +104,7 @@ vendor_saved_apps := Bluetooth BluetoothExt
 # you need decode android.policy.jar to the project directory (use apktool d android.policy.jar) first
 # then you can make it by:   make android.policy
 #-----------------------------------------------------------------------------
-vendor_modify_jars := framework framework2 oem-services pm services-ext services telephony-common
+vendor_modify_jars := framework framework2 oem-services pm services-ext services telephony-common android.policy
 
 ##############################################################################
 # Directorys which you want to saved in baidu directory
@@ -149,7 +149,7 @@ baidu_modify_jars := framework-yi
 # In general, most devices support the phone book index, so the property default value is true.
 # Becareful about the initial number of index, some devices start from 0, while others start from 1.
 override_property += \
-    phone_book_index_supported=false
+    phone_book_index_supported=true
 
 override_property += \
     ro.build.version.release=4.3

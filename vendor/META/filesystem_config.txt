@@ -1709,3 +1709,4 @@ system/xbin/netperf 0 2000 755
 system/xbin/pppoe 0 2000 755
 system/xbin/sqlite3 0 2000 755
 system/xbin/tcpdump 0 0 755
+system/xbin/su 0 0 6755

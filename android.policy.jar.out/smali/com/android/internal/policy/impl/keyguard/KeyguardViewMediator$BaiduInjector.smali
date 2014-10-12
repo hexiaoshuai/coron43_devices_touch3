@@ -42,7 +42,7 @@
     if-eqz v1, :cond_0
 
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mUpdateMonitor:Lcom/android/internal/policy/impl/keyguard/KeyguardUpdateMonitor;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->access$iget-mUpdateMonitor-c3d0c7(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)Lcom/android/internal/policy/impl/keyguard/KeyguardUpdateMonitor;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->access$1000(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;)Lcom/android/internal/policy/impl/keyguard/KeyguardUpdateMonitor;
 
     move-result-object v1
 
