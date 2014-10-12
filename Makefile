@@ -149,7 +149,7 @@ baidu_modify_jars := framework-yi
 # In general, most devices support the phone book index, so the property default value is true.
 # Becareful about the initial number of index, some devices start from 0, while others start from 1.
 override_property += \
-    phone_book_index_supported=true
+    phone_book_index_supported=false
 
 override_property += \
     ro.build.version.release=4.3
