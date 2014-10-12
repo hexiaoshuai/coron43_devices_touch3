@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/app_name"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    <PreferenceCategory android:title="@string/preference_display_title" android:key="display_settings">
+        <ListPreference android:entries="@array/listview_animation_entries" android:title="@string/listview_animation_title" android:key="listview_animation" android:defaultValue="0" android:dialogTitle="@string/listview_animation_title" android:entryValues="@array/listview_animation_values" />
+        <ListPreference android:entries="@array/listview_interpolator_entries" android:title="@string/listview_interpolator_title" android:key="listview_interpolator" android:defaultValue="0" android:dialogTitle="@string/listview_interpolator_title" android:entryValues="@array/listview_interpolator_values" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="drawable" name="ic_launcher" id="0x7f020000" />
+    <public type="xml" name="settings" id="0x7f030000" />
+    <public type="array" name="listview_animation_entries" id="0x7f040000" />
+    <public type="array" name="listview_animation_values" id="0x7f040001" />
+    <public type="array" name="listview_interpolator_entries" id="0x7f040002" />
+    <public type="array" name="listview_interpolator_values" id="0x7f040003" />
+    <public type="string" name="app_name" id="0x7f050000" />
+    <public type="string" name="listview_animation_title" id="0x7f050001" />
+    <public type="string" name="preference_display_title" id="0x7f050002" />
+    <public type="string" name="listview_off" id="0x7f050003" />
+    <public type="string" name="listview_wave_left" id="0x7f050004" />
+    <public type="string" name="listview_wave_right" id="0x7f050005" />
+    <public type="string" name="listview_alpha" id="0x7f050006" />
+    <public type="string" name="listview_scale" id="0x7f050007" />
+    <public type="string" name="listview_stack_top" id="0x7f050008" />
+    <public type="string" name="listview_stack_bottom" id="0x7f050009" />
+    <public type="string" name="listview_unfold" id="0x7f05000a" />
+    <public type="string" name="listview_fold" id="0x7f05000b" />
+    <public type="string" name="listview_translate_left" id="0x7f05000c" />
+    <public type="string" name="listview_translate_right" id="0x7f05000d" />
+    <public type="string" name="listview_interpolator_title" id="0x7f05000e" />
+    <public type="string" name="listview_accelerate_interpolator" id="0x7f05000f" />
+    <public type="string" name="listview_decelerate_interpolator" id="0x7f050010" />
+    <public type="string" name="listview_accelerate_decelerate_interpolator" id="0x7f050011" />
+    <public type="string" name="listview_anticipate_interpolator" id="0x7f050012" />
+    <public type="string" name="listview_overshoot_interpolator" id="0x7f050013" />
+    <public type="string" name="listview_anticipate_overshoot_interpolator" id="0x7f050014" />
+    <public type="string" name="listview_bounce_interpolator" id="0x7f050015" />
+    <public type="style" name="AppBaseTheme" id="0x7f060000" />
+    <public type="style" name="AppTheme" id="0x7f060001" />
+</resources>

@@ -89,6 +89,10 @@
     .end annotation
 .end field
 
+.field public static final LISTVIEW_ANIMATION:Ljava/lang/String; = "listview_animation"
+
+.field public static final LISTVIEW_INTERPOLATOR:Ljava/lang/String; = "listview_interpolator"
+
 .field public static final CABL_ENABLED:Ljava/lang/String; = "cabl_enabled"
 
 .field public static final CABL_LEVELS:Ljava/lang/String; = "cabl_levels"

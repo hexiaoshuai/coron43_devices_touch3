@@ -1,14 +1,11 @@
 .class Landroid/widget/AbsListView$1;
-.super Ljava/lang/Object;
+.super Landroid/os/Handler;
 .source "AbsListView.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroid/widget/AbsListView;->onTouchEvent(Landroid/view/MotionEvent;)Z
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Landroid/widget/AbsListView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,77 +17,48 @@
 # instance fields
 .field final synthetic this$0:Landroid/widget/AbsListView;
 
-.field final synthetic val$child:Landroid/view/View;
-
-.field final synthetic val$performClick:Landroid/widget/AbsListView$PerformClick;
-
 
 # direct methods
-.method constructor <init>(Landroid/widget/AbsListView;Landroid/view/View;Landroid/widget/AbsListView$PerformClick;)V
+.method constructor <init>(Landroid/widget/AbsListView;)V
     .locals 0
-    .parameter
-    .parameter
     .parameter
 
     .prologue
-    .line 3455
+    .line 3402
     iput-object p1, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
 
-    iput-object p2, p0, Landroid/widget/AbsListView$1;->val$child:Landroid/view/View;
-
-    iput-object p3, p0, Landroid/widget/AbsListView$1;->val$performClick:Landroid/widget/AbsListView$PerformClick;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public handleMessage(Landroid/os/Message;)V
+    .locals 2
+    .parameter "msg"
 
     .prologue
-    const/4 v2, 0x0
+    .line 3404
+    iget-object v1, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
 
-    .line 3458
     iget-object v0, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
 
-    const/4 v1, 0x0
-
-    #setter for: Landroid/widget/AbsListView;->mTouchModeReset:Ljava/lang/Runnable;
-    invoke-static {v0, v1}, Landroid/widget/AbsListView;->access$802(Landroid/widget/AbsListView;Ljava/lang/Runnable;)Ljava/lang/Runnable;
-
-    .line 3459
-    iget-object v0, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
-
-    const/4 v1, -0x1
-
-    iput v1, v0, Landroid/widget/AbsListView;->mTouchMode:I
-
-    .line 3460
-    iget-object v0, p0, Landroid/widget/AbsListView$1;->val$child:Landroid/view/View;
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setPressed(Z)V
-
-    .line 3461
-    iget-object v0, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/AbsListView;->setPressed(Z)V
-
-    .line 3462
-    iget-object v0, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
-
-    iget-boolean v0, v0, Landroid/widget/AbsListView;->mDataChanged:Z
+    iget-boolean v0, v0, Landroid/widget/AbsListView;->mIsTap:Z
 
     if-nez v0, :cond_0
 
-    .line 3463
-    iget-object v0, p0, Landroid/widget/AbsListView$1;->val$performClick:Landroid/widget/AbsListView$PerformClick;
+    const/4 v0, 0x1
 
-    invoke-virtual {v0}, Landroid/widget/AbsListView$PerformClick;->run()V
+    :goto_0
+    iput-boolean v0, v1, Landroid/widget/AbsListView;->mIsTap:Z
 
-    .line 3465
-    :cond_0
+    .line 3405
     return-void
+
+    .line 3404
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

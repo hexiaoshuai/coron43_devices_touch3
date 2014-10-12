@@ -1,3 +1,4 @@
+name="Listview_animation.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="AcqOrder.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="AGPSTestMode.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="AntHalService.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
@@ -26,7 +27,8 @@ name="Contacts.apk" certificate="build/security/shared.x509.pem" private_key="bu
 name="ContactsProvider.apk" certificate="build/security/shared.x509.pem" private_key="build/security/shared.pk8"
 name="DataMonitor.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="DefaultContainerService.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
-name="denied" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
+name="denied
+" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="DeviceInfo.apk" certificate="build/security/platform.x509.pem" private_key="build/security/platform.pk8"
 name="Dialer.apk" certificate="build/security/shared.x509.pem" private_key="build/security/shared.pk8"
 name="DownloadProvider.apk" certificate="build/security/media.x509.pem" private_key="build/security/media.pk8"
