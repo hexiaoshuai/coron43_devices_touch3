@@ -183,7 +183,7 @@
     sget-object v1, Lcom/android/internal/policy/impl/GlobalActions$BaiduInjector;->mGlobalActions:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$iget-mItems-bc40d5(Lcom/android/internal/policy/impl/GlobalActions;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$1000(Lcom/android/internal/policy/impl/GlobalActions;)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -203,7 +203,7 @@
 
     .line 1137
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/GlobalActions;->access$iget-mItems-bc40d5(Lcom/android/internal/policy/impl/GlobalActions;)Ljava/util/ArrayList;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/GlobalActions;->access$1000(Lcom/android/internal/policy/impl/GlobalActions;)Ljava/util/ArrayList;
 
     move-result-object v0
 
