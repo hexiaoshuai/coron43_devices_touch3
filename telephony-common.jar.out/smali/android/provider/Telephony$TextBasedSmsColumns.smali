@@ -39,8 +39,6 @@
 
 .field public static final MESSAGE_TYPE_QUEUED:I = 0x6
 
-.field public static final MESSAGE_TYPE_SEARCH:I = 0x7
-
 .field public static final MESSAGE_TYPE_SENT:I = 0x2
 
 .field public static final META_DATA:Ljava/lang/String; = "meta_data"
@@ -48,8 +46,6 @@
 .field public static final PERSON:Ljava/lang/String; = "person"
 
 .field public static final PERSON_ID:Ljava/lang/String; = "person"
-
-.field public static final PRIORITY:Ljava/lang/String; = "pri"
 
 .field public static final PROTOCOL:Ljava/lang/String; = "protocol"
 
@@ -72,8 +68,6 @@
 .field public static final STATUS_PENDING:I = 0x20
 
 .field public static final SUBJECT:Ljava/lang/String; = "subject"
-
-.field public static final SUB_ID:Ljava/lang/String; = "sub_id"
 
 .field public static final THREAD_ID:Ljava/lang/String; = "thread_id"
 
