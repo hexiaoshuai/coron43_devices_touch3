@@ -1028,15 +1028,7 @@
     :sswitch_1
     if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
-
-    move-result v2
-
-    invoke-static {p0, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->flashClose(Lcom/android/internal/policy/impl/PhoneWindowManager;I)Z
-
     goto :goto_1
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

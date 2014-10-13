@@ -62,7 +62,7 @@
     .prologue
     .line 1628
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mContext:Landroid/content/Context;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mContext-e5950c(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$1100(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -72,7 +72,7 @@
     move-result-object v2
 
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mContext:Landroid/content/Context;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mContext-e5950c(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$1100(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/content/Context;
 
     move-result-object v3
 
@@ -253,7 +253,7 @@
     new-instance v1, Landroid/widget/FrameLayout;
 
     #getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->mContext:Landroid/content/Context;
-    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$iget-mContext-e5950c(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->access$1100(Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;)Landroid/content/Context;
 
     move-result-object v2
 

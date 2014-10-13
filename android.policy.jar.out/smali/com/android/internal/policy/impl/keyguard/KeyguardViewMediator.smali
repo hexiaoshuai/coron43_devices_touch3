@@ -514,7 +514,7 @@
 
     move-result-object v4
 
-    const v5, 0x10e0005
+    const v5, #android:integer@config_lockSoundVolumeDb#t
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -942,7 +942,7 @@
     .line 1325
     iget-object v2, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mContext:Landroid/content/Context;
 
-    const v3, 0x104054e
+    const v3, #android:string@status_bar_device_locked#t
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -954,7 +954,7 @@
 
     const-string v3, "secure"
 
-    const v4, 0x1080584
+    const v4, #android:drawable@stat_sys_secure#t
 
     invoke-virtual {v2, v3, v4, v5, v0}, Landroid/app/StatusBarManager;->setIcon(Ljava/lang/String;IILjava/lang/String;)V
 
@@ -1021,34 +1021,30 @@
 
     if-nez v2, :cond_1
 
-    .line 1367
     iget-object v2, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     invoke-virtual {v2, v1}, Landroid/app/StatusBarManager;->disable(I)V
 
     invoke-static {p0, v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator$BaiduInjector;->processStatusBarExpandEnable(Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;I)V
+
     goto :goto_0
 
-    .line 1333
     .end local v1           #flags:I
     :cond_6
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mShowingLockIcon:Z
 
     if-eqz v2, :cond_3
 
-    .line 1334
     iget-object v2, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mStatusBarManager:Landroid/app/StatusBarManager;
 
     const-string v3, "secure"
 
     invoke-virtual {v2, v3}, Landroid/app/StatusBarManager;->removeIcon(Ljava/lang/String;)V
 
-    .line 1335
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewMediator;->mShowingLockIcon:Z
 
     goto :goto_1
 
-    .line 1350
     .restart local v1       #flags:I
     :cond_7
     const/high16 v2, 0x1
