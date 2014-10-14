@@ -10027,11 +10027,14 @@
     if-nez v3, :cond_5
 
     .line 1987
+    :try_start_0
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLight:Landroid/os/IHardwareService;
 
     invoke-interface {v3}, Landroid/os/IHardwareService;->turnOnButtonLightOneShot()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 1999
     :cond_5
@@ -10040,26 +10043,26 @@
 
     iget-boolean v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordEnabled:Z
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_d
 
     move/from16 v0, v21
 
     and-int/lit16 v3, v0, 0x400
 
-    if-nez v3, :cond_a
+    if-nez v3, :cond_d
 
     .line 2000
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyTriggered:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerKeyTriggered:Z
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_8
 
     .line 2001
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -10079,13 +10082,12 @@
     .local v35, timeoutTime:J
     cmp-long v3, v29, v35
 
-    if-gez v3, :cond_7
+    if-gez v3, :cond_8
 
     sub-long v5, v35, v29
 
     goto/16 :goto_0
     :goto_baidu_0
-    return-wide v5
 
     .end local v13           #canceled:Z
     .end local v17           #down:Z
@@ -10101,6 +10103,28 @@
     .restart local v13       #canceled:Z
     .restart local v17       #down:Z
     :cond_7
+    const/16 v23, 0x0
+
+    goto/16 :goto_2
+
+    .line 1988
+    .restart local v23       #isEnabled:Z
+    :catch_0
+    move-exception v18
+
+    .line 1989
+    .local v18, e:Landroid/os/RemoteException;
+    const-string v3, "WindowManager"
+
+    const-string v5, "remote call for turn on button light failed."
+
+    invoke-static {v3, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    .line 2007
+    .end local v18           #e:Landroid/os/RemoteException;
+    :cond_8
     const/16 v3, 0x19
 
     move/from16 v0, v25
@@ -10149,12 +10173,114 @@
 
     :cond_baidu_1
 
+    move-object/from16 v0, p0
+
+    iget-boolean v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyTriggered:Z
+
+    if-eqz v3, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-boolean v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerKeyTriggered:Z
+
+    if-nez v3, :cond_b
+
+    .line 2015
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v29
+
+    .line 2016
+    .restart local v29       #now:J
+    move-object/from16 v0, p0
+
+    iget-wide v5, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyTime:J
+
+    const-wide/16 v7, 0x96
+
+    add-long v35, v5, v7
+
+    .line 2017
+    .restart local v35       #timeoutTime:J
+    cmp-long v3, v29, v35
+
+    if-gez v3, :cond_b
+
+    .line 2018
+    sub-long v5, v35, v29
+
+    goto/16 :goto_0
+
+    .line 2021
+    .end local v29           #now:J
+    .end local v35           #timeoutTime:J
+    :cond_b
+    const/16 v3, 0x18
+
+    move/from16 v0, v25
+
+    if-ne v0, v3, :cond_d
+
+    move-object/from16 v0, p0
+
+    iget-boolean v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyConsumedByScreenshotChord:Z
+
+    if-eqz v3, :cond_d
+
+    if-nez v17, :cond_c
+
+    const/4 v3, 0x0
+
+    move-object/from16 v0, p0
+
+    iput-boolean v3, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeUpKeyConsumedByScreenshotChord:Z
+
+    :cond_c
+    const-wide/16 v5, -0x1
+
+    goto/16 :goto_0
+
+    :cond_d
     const/4 v3, 0x3
 
     move/from16 v0, v25
 
     if-ne v0, v3, :cond_1d
 
+    .line 2038
+    if-eqz p1, :cond_e
+
+    invoke-interface/range {p1 .. p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_e
+
+    .line 2039
+    invoke-interface/range {p1 .. p1}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v3
+
+    iget v0, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
+
+    move/from16 v20, v0
+
+    .line 2040
+    .local v20, flag:I
+    const/high16 v3, -0x8000
+
+    and-int v3, v3, v20
+
+    if-eqz v3, :cond_e
+
+    .line 2042
+    const-wide/16 v5, 0x0
+
+    goto/16 :goto_0
+
+    .line 2050
+    .end local v20           #flag:I
+    :cond_e
     if-nez v17, :cond_13
 
     .line 2051
