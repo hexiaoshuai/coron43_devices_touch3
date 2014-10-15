@@ -1,11 +1,10 @@
-# mount point	fstype		device
+# mount point		fstype		device
 /boot			emmc		/dev/block/platform/msm_sdcc.1/by-name/boot
 /recovery		emmc		/dev/block/platform/msm_sdcc.1/by-name/recovery
 /cache			ext4		/dev/block/platform/msm_sdcc.1/by-name/cache
 /system			ext4		/dev/block/platform/msm_sdcc.1/by-name/system
-/data			ext4		/dev/block/platform/msm_sdcc.1/by-name/userdata length=-16384
+/data			ext4		/dev/block/platform/msm_sdcc.1/by-name/userdata
 /modem			emmc		/dev/block/platform/msm_sdcc.1/by-name/modem
 /misc		   	emmc		/dev/block/platform/msm_sdcc.1/by-name/misc
-/sdcard2        	vfat         	/dev/block/platform/msm_sdcc.1/by-name/usbmsc
-#/sdcard         	vfat       	/dev/block/platform/msm_sdcc.1/by-name/sdcard
-/sdcard         	vfat       	/dev/block/mmcblk1p1	lun=/sys/class/android_usb/android0/f_mass_storage/lun0/file
+/sdcard0        	vfat         	/devices/msm_sdcc.1/mmc_host
+/sdcard1        	vfat         	/devices/msm_sdcc.2/mmc_host
