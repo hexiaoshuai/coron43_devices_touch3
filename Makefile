@@ -119,7 +119,7 @@ vendor_modify_jars := framework framework2 oem-services pm services-ext services
 ##############################################################################
 # baidu_remove_apps: those baidu apk you want remove 
 #-----------------------------------------------------------------------------
-# baidu_remove_apps := BaiduUserFeedback.apk
+baidu_remove_apps := BaiduAppSearch.apk BaiduBackupRestore.apk BaiduClickSearch.apk BaiduMap.apk BaiduVideoEditor.apk GameCenter.apk SearchBox.apk 
 
 ##############################################################################
 # baidu_modify_apps: which base the baidu's apk
