@@ -125,7 +125,7 @@ vendor_modify_jars := framework framework2 oem-services pm services-ext services
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-baidu_modify_apps := SystemUI Phone Settings Contacts
+baidu_modify_apps := SystemUI Phone Settings Contacts ResManager
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar
