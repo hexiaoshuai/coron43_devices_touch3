@@ -1,0 +1,788 @@
+.method updateOngoingCall(Lcom/android/internal/telephony/CallManager;)V
+    .locals 24
+    .parameter "cm"
+
+    .prologue
+    .line 2101
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/CallManager;->getState()Lcom/android/internal/telephony/PhoneConstants$State;
+
+    move-result-object v16
+
+    .line 2102
+    .local v16, state:Lcom/android/internal/telephony/PhoneConstants$State;
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/CallManager;->getFirstActiveRingingCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v15
+
+    .line 2103
+    .local v15, ringingCall:Lcom/android/internal/telephony/Call;
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v8
+
+    .line 2104
+    .local v8, fgCall:Lcom/android/internal/telephony/Call;
+    invoke-virtual/range {p1 .. p1}, Lcom/android/internal/telephony/CallManager;->getFirstActiveBgCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v3
+
+    .line 2105
+    .local v3, bgCall:Lcom/android/internal/telephony/Call;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mInCallScreen:Lcom/android/phone/InCallScreen;
+
+    move-object/from16 v19, v0
+
+    const v20, #com.android.phone:id@call_info_ongoing#t
+
+    invoke-virtual/range {v19 .. v20}, Lcom/android/phone/InCallScreen;->findViewById(I)Landroid/view/View;
+
+    move-result-object v12
+
+    .line 2106
+    .local v12, ongoing:Landroid/view/View;
+    invoke-virtual {v15}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-ne v0, v1, :cond_1
+
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-ne v0, v1, :cond_1
+
+    invoke-virtual {v3}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-ne v0, v1, :cond_1
+
+    .line 2109
+    invoke-direct/range {p0 .. p1}, Lcom/android/phone/CallCard;->updateNoCall(Lcom/android/internal/telephony/CallManager;)V
+
+    .line 2110
+    const/16 v19, 0x8
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Landroid/view/View;->setVisibility(I)V
+
+    .line 2205
+    :cond_0
+    :goto_0
+    return-void
+
+    .line 2113
+    :cond_1
+    invoke-virtual {v15}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-eq v0, v1, :cond_7
+
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/internal/telephony/Call$State;->isDialing()Z
+
+    move-result v19
+
+    if-nez v19, :cond_7
+
+    invoke-static {v15, v12}, Lcom/android/phone/BaiduPhoneUtil;->displaySmallImage(Lcom/android/internal/telephony/Call;Landroid/view/View;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_7
+
+    .line 2115
+    const/16 v19, 0x0
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Landroid/view/View;->setVisibility(I)V
+
+    .line 2117
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mCallInfoContainer:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    .line 2119
+    .local v5, callInfoLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    const/16 v19, 0x0
+
+    move/from16 v0, v19
+
+    iput v0, v5, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    .line 2120
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mCallInfoContainer:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v5}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 2122
+    invoke-virtual/range {p0 .. p0}, Lcom/android/phone/CallCard;->hideCallCardElements()V
+
+    .line 2123
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v15}, Lcom/android/phone/CallCard;->updateOngoingCallControl(Lcom/android/internal/telephony/Call;)V
+
+    .line 2180
+    .end local v5           #callInfoLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    :cond_2
+    :goto_1
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/view/ViewGroup;->getVisibility()I
+
+    move-result v19
+
+    if-nez v19, :cond_6
+
+    .line 2181
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->DISCONNECTING:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-eq v0, v1, :cond_3
+
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->DISCONNECTED:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-ne v0, v1, :cond_4
+
+    .line 2182
+    :cond_3
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mElapsedTime:Landroid/widget/TextView;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x4
+
+    invoke-virtual/range {v19 .. v20}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 2183
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mSecondaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/view/ViewGroup;->getVisibility()I
+
+    move-result v19
+
+    if-nez v19, :cond_13
+
+    .line 2185
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v10
+
+    check-cast v10, Landroid/widget/LinearLayout;
+
+    .line 2186
+    .local v10, lo:Landroid/widget/LinearLayout;
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    invoke-virtual {v10, v0}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v17
+
+    .line 2187
+    .local v17, v:Landroid/view/View;
+    if-eqz v17, :cond_5
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v12}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_5
+
+    .line 2188
+    move-object/from16 v0, v17
+
+    invoke-virtual {v10, v0}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
+
+    .line 2189
+    const/16 v19, 0x0
+
+    move-object/from16 v0, v17
+
+    move/from16 v1, v19
+
+    invoke-virtual {v10, v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
+
+    .line 2193
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0x0
+
+    invoke-virtual/range {v19 .. v23}, Landroid/view/ViewGroup;->setPadding(IIII)V
+
+    .line 2194
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mSecondaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0xc8
+
+    invoke-virtual/range {v19 .. v23}, Landroid/view/ViewGroup;->setPadding(IIII)V
+
+    .line 2203
+    .end local v10           #lo:Landroid/widget/LinearLayout;
+    .end local v17           #v:Landroid/view/View;
+    :cond_6
+    :goto_2
+    invoke-virtual {v12}, Landroid/view/View;->getVisibility()I
+
+    move-result v19
+
+    if-nez v19, :cond_0
+
+    .line 2204
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mCallInfoContainer:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    invoke-virtual/range {v19 .. v20}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
+
+    goto/16 :goto_0
+
+    .line 2125
+    :cond_7
+    invoke-static {v15, v12}, Lcom/android/phone/BaiduPhoneUtil;->displaySmallImage(Lcom/android/internal/telephony/Call;Landroid/view/View;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_12
+
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-ne v0, v1, :cond_8
+
+    invoke-virtual {v3}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-eq v0, v1, :cond_12
+
+    .line 2127
+    :cond_8
+    invoke-virtual {v3}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-eq v0, v1, :cond_9
+
+    invoke-virtual {v8}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-eq v0, v1, :cond_9
+
+    .line 2128
+    const/16 v19, 0x8
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_1
+
+    .line 2131
+    :cond_9
+    invoke-static {v8}, Lcom/android/phone/PhoneUtils;->isConferenceCall(Lcom/android/internal/telephony/Call;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_a
+
+    invoke-static {v3}, Lcom/android/phone/PhoneUtils;->isConferenceCall(Lcom/android/internal/telephony/Call;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_b
+
+    :cond_a
+    if-eqz v12, :cond_b
+
+    .line 2132
+    const/16 v19, 0x8
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_1
+
+    .line 2134
+    :cond_b
+    invoke-virtual {v3}, Lcom/android/internal/telephony/Call;->getState()Lcom/android/internal/telephony/Call$State;
+
+    move-result-object v19
+
+    sget-object v20, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, v20
+
+    if-ne v0, v1, :cond_c
+
+    move-object v4, v8
+
+    .line 2135
+    .local v4, call:Lcom/android/internal/telephony/Call;
+    :goto_3
+    const/4 v7, 0x0
+
+    .line 2136
+    .local v7, conn:Lcom/android/internal/telephony/Connection;
+    invoke-virtual {v4}, Lcom/android/internal/telephony/Call;->getPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v19
+
+    invoke-interface/range {v19 .. v19}, Lcom/android/internal/telephony/Phone;->getPhoneType()I
+
+    move-result v13
+
+    .line 2137
+    .local v13, phoneType:I
+    const/16 v19, 0x2
+
+    move/from16 v0, v19
+
+    if-ne v13, v0, :cond_d
+
+    .line 2138
+    invoke-virtual {v4}, Lcom/android/internal/telephony/Call;->getLatestConnection()Lcom/android/internal/telephony/Connection;
+
+    move-result-object v7
+
+    .line 2145
+    :goto_4
+    invoke-virtual/range {p0 .. p0}, Lcom/android/phone/CallCard;->getContext()Landroid/content/Context;
+
+    move-result-object v19
+
+    const/16 v20, 0x0
+
+    move-object/from16 v0, v19
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, v20
+
+    invoke-static {v0, v7, v1, v2}, Lcom/android/phone/PhoneUtils;->startGetCallerInfo(Landroid/content/Context;Lcom/android/internal/telephony/Connection;Lcom/android/internal/telephony/CallerInfoAsyncQuery$OnQueryCompleteListener;Ljava/lang/Object;)Lcom/android/phone/PhoneUtils$CallerInfoToken;
+
+    move-result-object v6
+
+    .line 2148
+    .local v6, cit:Lcom/android/phone/PhoneUtils$CallerInfoToken;
+    const v14, #com.android.phone:drawable@picture_unknown#t
+
+    .line 2149
+    .local v14, resId:I
+    if-nez v7, :cond_baidu_0
+
+    move-object v11, v6
+
+    goto :goto_baidu_0
+
+    :cond_baidu_0
+
+    invoke-virtual {v7}, Lcom/android/internal/telephony/Connection;->getUserData()Ljava/lang/Object;
+
+    move-result-object v11
+
+    .line 2150
+    :goto_baidu_0
+    .local v11, o:Ljava/lang/Object;
+    instance-of v0, v11, Lcom/android/internal/telephony/CallerInfo;
+
+    move/from16 v19, v0
+
+    if-eqz v19, :cond_10
+
+    check-cast v11, Lcom/android/internal/telephony/CallerInfo;
+
+    .end local v11           #o:Ljava/lang/Object;
+    move-object v9, v11
+
+    .line 2151
+    .local v9, info:Lcom/android/internal/telephony/CallerInfo;
+    :goto_5
+    if-eqz v9, :cond_2
+
+    .line 2152
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mYellowInfoHelper:Lcom/baidu/internal/contacts/YellowInfoHelper;
+
+    move-object/from16 v19, v0
+
+    iget-object v0, v9, Lcom/android/internal/telephony/CallerInfo;->phoneNumber:Ljava/lang/String;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Lcom/baidu/internal/contacts/YellowInfoHelper;->getCachedInfo(Ljava/lang/String;)Lcom/baidu/internal/contacts/YellowInfoHelper$YellowInfo;
+
+    move-result-object v18
+
+    .line 2153
+    .local v18, yi:Lcom/baidu/internal/contacts/YellowInfoHelper$YellowInfo;
+    move-object/from16 v0, v18
+
+    iget v0, v0, Lcom/baidu/internal/contacts/YellowInfoHelper$YellowInfo;->type:I
+
+    move/from16 v19, v0
+
+    const/16 v20, 0x1
+
+    move/from16 v0, v19
+
+    move/from16 v1, v20
+
+    if-ne v0, v1, :cond_11
+
+    .line 2154
+    const v14, #com.android.phone:drawable@picture_yellowpages#t
+
+    .line 2155
+    const/16 v19, 0x8
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Landroid/view/View;->setVisibility(I)V
+
+    goto/16 :goto_1
+
+    .end local v4           #call:Lcom/android/internal/telephony/Call;
+    .end local v6           #cit:Lcom/android/phone/PhoneUtils$CallerInfoToken;
+    .end local v7           #conn:Lcom/android/internal/telephony/Connection;
+    .end local v9           #info:Lcom/android/internal/telephony/CallerInfo;
+    .end local v13           #phoneType:I
+    .end local v14           #resId:I
+    .end local v18           #yi:Lcom/baidu/internal/contacts/YellowInfoHelper$YellowInfo;
+    :cond_c
+    move-object v4, v3
+
+    .line 2134
+    goto :goto_3
+
+    .line 2139
+    .restart local v4       #call:Lcom/android/internal/telephony/Call;
+    .restart local v7       #conn:Lcom/android/internal/telephony/Connection;
+    .restart local v13       #phoneType:I
+    :cond_d
+    const/16 v19, 0x1
+
+    move/from16 v0, v19
+
+    if-eq v13, v0, :cond_e
+
+    const/16 v19, 0x3
+
+    move/from16 v0, v19
+
+    if-ne v13, v0, :cond_f
+
+    .line 2141
+    :cond_e
+    invoke-virtual {v4}, Lcom/android/internal/telephony/Call;->getEarliestConnection()Lcom/android/internal/telephony/Connection;
+
+    move-result-object v7
+
+    goto :goto_4
+
+    .line 2143
+    :cond_f
+    new-instance v19, Ljava/lang/IllegalStateException;
+
+    new-instance v20, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v20 .. v20}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v21, "Unexpected phone type: "
+
+    invoke-virtual/range {v20 .. v21}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v20
+
+    invoke-direct/range {v19 .. v20}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v19
+
+    .line 2150
+    .restart local v6       #cit:Lcom/android/phone/PhoneUtils$CallerInfoToken;
+    .restart local v11       #o:Ljava/lang/Object;
+    .restart local v14       #resId:I
+    :cond_10
+    check-cast v11, Lcom/android/phone/PhoneUtils$CallerInfoToken;
+
+    .end local v11           #o:Ljava/lang/Object;
+    iget-object v9, v11, Lcom/android/phone/PhoneUtils$CallerInfoToken;->currentInfo:Lcom/android/internal/telephony/CallerInfo;
+
+    goto :goto_5
+
+    .line 2157
+    .restart local v9       #info:Lcom/android/internal/telephony/CallerInfo;
+    .restart local v18       #yi:Lcom/baidu/internal/contacts/YellowInfoHelper$YellowInfo;
+    :cond_11
+    invoke-static {v9, v12}, Lcom/android/phone/BaiduPhoneUtil;->displaySmallImage(Lcom/android/internal/telephony/CallerInfo;Landroid/view/View;)Z
+
+    move-result v19
+
+    if-nez v19, :cond_2
+
+    .line 2158
+    const/16 v19, 0x0
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Landroid/view/View;->setVisibility(I)V
+
+    .line 2161
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mCallInfoContainer:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    invoke-virtual/range {v19 .. v19}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    .line 2163
+    .restart local v5       #callInfoLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    const/16 v19, 0x0
+
+    move/from16 v0, v19
+
+    iput v0, v5, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
+
+    .line 2165
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mCallInfoContainer:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v5}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    .line 2167
+    invoke-virtual/range {p0 .. p0}, Lcom/android/phone/CallCard;->hideCallCardElements()V
+
+    .line 2168
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v4}, Lcom/android/phone/CallCard;->updateOngoingCallControl(Lcom/android/internal/telephony/Call;)V
+
+    goto/16 :goto_1
+
+    .line 2173
+    .end local v4           #call:Lcom/android/internal/telephony/Call;
+    .end local v5           #callInfoLp:Landroid/view/ViewGroup$MarginLayoutParams;
+    .end local v6           #cit:Lcom/android/phone/PhoneUtils$CallerInfoToken;
+    .end local v7           #conn:Lcom/android/internal/telephony/Connection;
+    .end local v9           #info:Lcom/android/internal/telephony/CallerInfo;
+    .end local v13           #phoneType:I
+    .end local v14           #resId:I
+    .end local v18           #yi:Lcom/baidu/internal/contacts/YellowInfoHelper$YellowInfo;
+    :cond_12
+    if-eqz v12, :cond_2
+
+    .line 2174
+    const/16 v19, 0x8
+
+    move/from16 v0, v19
+
+    invoke-virtual {v12, v0}, Landroid/view/View;->setVisibility(I)V
+
+    .line 2175
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    invoke-virtual/range {v19 .. v20}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    goto/16 :goto_1
+
+    .line 2199
+    :cond_13
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mPrimaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0xfa
+
+    invoke-virtual/range {v19 .. v23}, Landroid/view/ViewGroup;->setPadding(IIII)V
+
+    .line 2200
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/phone/CallCard;->mSecondaryCallInfo:Landroid/view/ViewGroup;
+
+    move-object/from16 v19, v0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0x0
+
+    invoke-virtual/range {v19 .. v23}, Landroid/view/ViewGroup;->setPadding(IIII)V
+
+    goto/16 :goto_2
+.end method

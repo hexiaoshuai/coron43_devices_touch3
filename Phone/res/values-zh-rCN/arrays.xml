@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gsm_umts_network_preferences_choices">
+        <item>2G/3G/4G自动模式(默认模式)</item>
+        <item>2G模式(重启/飞行模式后失效)</item>
+    </string-array>
+    <string-array name="gsm_umts_network_preferences_values">
+        <item>4</item>
+        <item>1</item>
+    </string-array>
+</resources>

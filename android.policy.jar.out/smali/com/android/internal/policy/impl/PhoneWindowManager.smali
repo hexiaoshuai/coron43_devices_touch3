@@ -10088,6 +10088,7 @@
 
     goto/16 :goto_0
     :goto_baidu_0
+    return-wide v5
 
     .end local v13           #canceled:Z
     .end local v17           #down:Z

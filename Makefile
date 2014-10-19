@@ -37,7 +37,7 @@ NO_SYSTEM_IMG := true
 # Default SIGN_OTA is true
 # If your pc's memory is lower than 2GB, you better set it to false
 #-----------------------------------------------------------------------------
-SIGN_OTA := true
+SIGN_OTA := false
 
 ##############################################################################
 # customize weather use prebuilt image or pack from BOOT/RECOVERY directory
@@ -119,13 +119,13 @@ vendor_modify_jars := framework framework2 oem-services pm services-ext services
 ##############################################################################
 # baidu_remove_apps: those baidu apk you want remove 
 #-----------------------------------------------------------------------------
-baidu_remove_apps := BaiduAppSearch.apk BaiduBackupRestore.apk BaiduClickSearch.apk BaiduMap.apk BaiduVideoEditor.apk GameCenter.apk SearchBox.apk 
+baidu_remove_apps := BaiduAppSearch.apk BaiduBackupRestore.apk BaiduClickSearch.apk BaiduMap.apk BaiduVideoEditor.apk GameCenter.apk SearchBox.apk BaiduDirectShare.apk Email2.apk Exchange2.apk HelpBook.apk iReader.apk 
 
 ##############################################################################
 # baidu_modify_apps: which base the baidu's apk
 # just override the res, append *.smali.part
 #-----------------------------------------------------------------------------
-baidu_modify_apps := SystemUI Phone Settings Contacts ResManager
+baidu_modify_apps := SystemUI Phone Settings Contacts
 
 ##############################################################################
 # baidu_modify_jars: which base the baidu's jar
