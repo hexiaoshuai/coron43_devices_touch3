@@ -185,6 +185,8 @@
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/QuickContactBadge;->initPadding()V
 
+    invoke-direct/range {p0 .. p0}, Landroid/widget/QuickContactBadge;->initPadding()V
+
     return-void
 .end method
 

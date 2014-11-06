@@ -1149,7 +1149,7 @@
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;
 
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/keyguard/KeyguardHostView;->requestFocus()Z
+    invoke-virtual {v2}, Landroid/view/View;->requestFocus()Z
 
     const/4 v0, 0x0
 

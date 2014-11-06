@@ -1316,3 +1316,20 @@
     .line 245
     goto :goto_0
 .end method
+
+.method public put(Ljava/lang/String;[B)Z
+    .locals 2
+    .parameter "key"
+    .parameter "value"
+
+    .prologue
+    const/4 v0, -0x1
+
+    const/4 v1, 0x1
+
+    invoke-virtual {p0, p1, p2, v0, v1}, Landroid/security/KeyStore;->put(Ljava/lang/String;[BII)Z
+
+    move-result v0
+
+    return v0
+.end method

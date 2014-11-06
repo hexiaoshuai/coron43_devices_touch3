@@ -88,11 +88,10 @@
 
     check-cast v2, Landroid/content/res/Resources;
 
-    .line 257
     .local v2, r:Landroid/content/res/Resources;
     if-eqz v2, :cond_0
 
-    .line 258
+    :try_start_0
     invoke-virtual {v2}, Landroid/content/res/Resources;->getAssets()Landroid/content/res/AssetManager;
 
     move-result-object v3
@@ -121,6 +120,13 @@
     move-result-object v4
 
     invoke-virtual {v3, v4}, Landroid/content/res/BaiduAssetManager;->setContext(Landroid/content/Context;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v3
 
     goto :goto_0
 

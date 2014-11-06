@@ -19,6 +19,7 @@
         Landroid/widget/Editor$InsertionHandleView;,
         Landroid/widget/Editor$HandleView;,
         Landroid/widget/Editor$BaiduActionPopupWindow;,
+        Landroid/widget/Editor$BaiduClipboardPopupWindow;,
         Landroid/widget/Editor$ActionPopupWindow;,
         Landroid/widget/Editor$SelectionActionModeCallback;,
         Landroid/widget/Editor$SuggestionsPopupWindow;,
