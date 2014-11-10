@@ -795,23 +795,29 @@
 
     move-result v7
 
-    if-ne v7, v6, :cond_3
+    if-nez v7, :cond_2
 
     invoke-static {}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->getBackLongPressBehavior()I
 
-    move-result v6
+    move-result v7
 
-    const/4 v7, 0x3
+    const/4 v8, 0x3
 
-    if-eq v6, v7, :cond_2
+    if-eq v7, v8, :cond_2
 
     invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->loadFirstTask(Lcom/android/internal/policy/impl/PhoneWindowManager;)Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector$TaskDescription;
 
-    move-result-object v6
+    move-result-object v7
 
-    sput-object v6, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->mCurrentTaskDescription:Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector$TaskDescription;
+    sput-object v7, Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector;->mCurrentTaskDescription:Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector$TaskDescription;
 
     :cond_2
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
+
+    move-result v7
+
+    if-ne v7, v6, :cond_3
+
     #getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mBaiduLongPressRunnable:Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector$KillRunnable;
     invoke-static {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$iget-mBaiduLongPressRunnable-c9b5d2(Lcom/android/internal/policy/impl/PhoneWindowManager;)Lcom/android/internal/policy/impl/PhoneWindowManager$BaiduInjector$KillRunnable;
 
@@ -835,7 +841,7 @@
 
     move-result-object v7
 
-    const-wide/16 v8, 0x2bc
+    const-wide/16 v8, 0x258
 
     invoke-virtual {v6, v7, v8, v9}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 

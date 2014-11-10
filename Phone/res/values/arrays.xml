@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="gsm_umts_network_preferences_choices">
-        <item>3g/4G Muti-mode</item>
+        <item>4G Muti-mode</item>
         <item>2G Muti-mode</item>
     </string-array>
     <string-array name="gsm_umts_network_preferences_values">

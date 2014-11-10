@@ -1,0 +1,75 @@
+.method static shouldRecord(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 3
+    .parameter "context"
+    .parameter "number"
+
+    .prologue
+    .line 560
+    invoke-static {p0}, Lcom/android/phone/BaiduPhoneUtil;->isAutoRecordEnabled(Landroid/content/Context;)Z
+
+    move-result v2
+
+    .line 562
+    .local v2, result:Z
+    if-eqz v2, :cond_0
+
+    .line 565
+    invoke-static {p0}, Lcom/android/phone/BaiduPhoneUtil;->isRecordNumberEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    .line 566
+    .local v0, enable:Z
+    if-eqz v0, :cond_0
+
+    .line 567
+    invoke-static {p0, p1}, Lcom/android/phone/AutoRecordListActivity;->existedInWhiteList(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v1
+
+    .line 568
+    .local v1, exist:Z
+    if-nez v1, :cond_0
+
+    .line 569
+    const/4 v2, 0x0
+
+    .line 574
+    .end local v0           #enable:Z
+    .end local v1           #exist:Z
+    :cond_0
+    return v2
+.end method
+
+.method static isRecordNumberEnabled(Landroid/content/Context;)Z
+    .locals 4
+    .parameter "context"
+
+    .prologue
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    .line 556
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v3, "auto_record_whitelist"
+
+    invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v0, :cond_0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+

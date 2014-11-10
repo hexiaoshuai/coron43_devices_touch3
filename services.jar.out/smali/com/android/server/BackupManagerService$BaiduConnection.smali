@@ -129,39 +129,16 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 4
+    .locals 3
     .parameter "name"
 
     .prologue
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    .line 1453
-    const-string v0, "BackupManagerService"
+    .line 1450
+    iput-object v2, p0, Lcom/android/server/BackupManagerService$BaiduConnection;->mBaiduLocalTransport:Lcom/android/internal/backup/IBackupTransport;
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Disconnected from Baidu LocalTransportService"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 1454
-    iput-object v3, p0, Lcom/android/server/BackupManagerService$BaiduConnection;->mBaiduLocalTransport:Lcom/android/internal/backup/IBackupTransport;
-
-    .line 1455
+    .line 1451
     iget-object v0, p0, Lcom/android/server/BackupManagerService$BaiduConnection;->mService:Lcom/android/server/BackupManagerService;
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
@@ -171,6 +148,6 @@
     #calls: Lcom/android/server/BackupManagerService;->registerTransport(Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
     invoke-static {v0, v1, v2}, Lcom/android/server/BackupManagerService;->access$500(Lcom/android/server/BackupManagerService;Ljava/lang/String;Lcom/android/internal/backup/IBackupTransport;)V
 
-    .line 1456
+    .line 1452
     return-void
 .end method

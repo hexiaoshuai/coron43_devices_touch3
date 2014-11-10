@@ -187,6 +187,8 @@
 
     invoke-direct/range {p0 .. p0}, Landroid/widget/QuickContactBadge;->initPadding()V
 
+    invoke-direct/range {p0 .. p0}, Landroid/widget/QuickContactBadge;->initPadding()V
+
     return-void
 .end method
 
@@ -604,7 +606,7 @@
 
     if-nez v1, :cond_baidu_0
 
-    invoke-virtual {p0}, Landroid/widget/QuickContactBadge;->isEnabled()Z
+    invoke-virtual {p0}, Landroid/view/View;->isEnabled()Z
 
     move-result v1
 

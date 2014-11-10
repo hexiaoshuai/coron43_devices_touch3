@@ -53,7 +53,8 @@ SIGN_OTA := false
 # customize weather add assert in update-script of ota package
 # set false if you don't need this assert fuction
 #-----------------------------------------------------------------------------
-recovery_ota_assert := false
+
+RECOVERY_OTA_ASSERT := false
 
 ##############################################################################
 # Directorys which you want to remove in vendor directory
