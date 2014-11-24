@@ -5146,7 +5146,9 @@
 
     move-object/from16 v2, v48
 
-    invoke-static {v0, v1, v2, v4}, Lcom/baidu/security/bm/BroadcastManagerService;->filterBroadcastReceiver(Ljava/util/List;Ljava/util/List;Landroid/content/Intent;Ljava/util/ArrayList;)I
+    move/from16 v6, p14
+
+    invoke-static {v0, v1, v2, v4, v6}, Lcom/baidu/security/bm/BroadcastManagerService;->filterBroadcastReceiver(Ljava/util/List;Ljava/util/List;Landroid/content/Intent;Ljava/util/ArrayList;I)I
 
     invoke-virtual/range {v48 .. v48}, Landroid/content/Intent;->getFlags()I
 

@@ -65,7 +65,7 @@
 
     move-result-object v0
 
-    const v1, #android:integer@config_notificationsBatteryLowARGB#t
+    const v1, 0x10e001f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -78,7 +78,7 @@
 
     move-result-object v0
 
-    const v1, #android:integer@config_notificationsBatteryMediumARGB#t
+    const v1, 0x10e0020
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -91,7 +91,7 @@
 
     move-result-object v0
 
-    const v1, #android:integer@config_notificationsBatteryFullARGB#t
+    const v1, 0x10e0021
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -104,7 +104,7 @@
 
     move-result-object v0
 
-    const v1, #android:integer@config_notificationsBatteryLedOn#t
+    const v1, 0x10e0022
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -117,7 +117,7 @@
 
     move-result-object v0
 
-    const v1, #android:integer@config_notificationsBatteryLedOff#t
+    const v1, 0x10e0023
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -179,18 +179,22 @@
 
     if-ge v0, v2, :cond_1
 
+    .line 715
     if-ne v1, v3, :cond_0
 
+    .line 717
     iget-object v2, p0, Lcom/android/server/BatteryService$Led;->mBatteryLight:Lcom/android/server/LightsService$Light;
 
     iget v3, p0, Lcom/android/server/BatteryService$Led;->mBatteryLowARGB:I
 
     invoke-virtual {v2, v3}, Lcom/android/server/LightsService$Light;->setColor(I)V
 
+    .line 736
     :goto_0
     :goto_baidu_0
     return-void
 
+    .line 720
     :cond_0
     iget-object v2, p0, Lcom/android/server/BatteryService$Led;->mBatteryLight:Lcom/android/server/LightsService$Light;
 
