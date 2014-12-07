@@ -159,6 +159,12 @@ override_property += \
 # You should configure the property according to your ID, ie, replace "Coron" with your ID.
 override_property += \
     ro.baidu.romer=Coron_Hxs
+override_property += \
+    romzj.rom.id=0249f303-0765-22df-af44-2f5665b64386
+override_property += \
+    romzj.rom.version=62
+override_property += \
+    romzj.rom.version.code=62
 
 ##############################################################################
 # remove_property: this property will remove from the build.prop
