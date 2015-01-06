@@ -651,3 +651,40 @@
 
     return-object v0
 .end method
+
+.method protected bridge synthetic isPackageForFilter(Ljava/lang/String;Landroid/content/IntentFilter;)Z
+    .locals 1
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    check-cast p2, Lcom/android/server/pm/PreferredActivityBaidu;
+
+    .end local p2
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PreferredIntentResolverBaidu;->isPackageForFilter(Ljava/lang/String;Lcom/android/server/pm/PreferredActivityBaidu;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected isPackageForFilter(Ljava/lang/String;Lcom/android/server/pm/PreferredActivityBaidu;)Z
+    .locals 1
+    .parameter "packageName"
+    .parameter "info"
+
+    .prologue
+    invoke-virtual {p2}, Lcom/android/server/pm/PreferredActivityBaidu;->getmComponentName()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
