@@ -14258,34 +14258,28 @@
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 4937
     .restart local v3       #voiceIntent:Landroid/content/Intent;
     const-string v4, "AudioService"
 
-    const-string/jumbo v5, "voice-based interactions: about to use ACTION_WEB_SEARCH"
+    const-string v5, "voice-based interactions: about to use ACTION_WEB_SEARCH"
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 4945
     :goto_1
     if-eqz p1, :cond_0
 
-    .line 4946
     iget-object v4, p0, Landroid/media/AudioService;->mMediaEventWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v4}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
-    .line 4949
     :cond_0
     if-eqz v3, :cond_1
 
-    .line 4950
-    const/high16 v4, 0x1080
+    const/high16 v4, #android:drawable@alert_dark_frame#h0
 
     :try_start_0
     invoke-virtual {v3, v4}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 4952
     iget-object v4, p0, Landroid/media/AudioService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v4, v3}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V

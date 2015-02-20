@@ -295,6 +295,8 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->sendFormatCompleteBroadcastBaidu()V
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->sendFormatCompleteBroadcastBaidu()V
+
     return-void
 .end method
 
@@ -410,6 +412,8 @@
     .end local v5           #volumes:[Landroid/os/storage/StorageVolume;
     :goto_0
     invoke-virtual {p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->stopSelf()V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->sendFormatCompleteBroadcastBaidu()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->sendFormatCompleteBroadcastBaidu()V
 

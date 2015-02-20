@@ -8906,7 +8906,7 @@
     .parameter "windowManagerFuncs"
 
     .prologue
-    const/high16 v8, 0x1020
+    const/high16 v8, #android:id@background#h0
 
     const/4 v7, 0x0
 

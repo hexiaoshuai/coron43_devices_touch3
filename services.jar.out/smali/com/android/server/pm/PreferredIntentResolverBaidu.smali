@@ -389,7 +389,6 @@
 
     if-eq v5, v6, :cond_0
 
-    .line 136
     new-instance v5, Lcom/android/server/pm/PreferredActivityBaidu;
 
     invoke-direct {v5, v1, v3}, Lcom/android/server/pm/PreferredActivityBaidu;-><init>(Landroid/content/IntentFilter;Landroid/content/ComponentName;)V
@@ -398,35 +397,29 @@
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 140
     :goto_2
     return-void
 
-    .line 108
     .end local v2           #hasAccountEmail:Landroid/content/ComponentName;
     .end local v3           #hasNoAccountEmail:Landroid/content/ComponentName;
     .end local v4           #pm:Landroid/content/pm/PackageManager;
     :catch_0
     move-exception v0
 
-    .line 109
     .local v0, e:Landroid/content/IntentFilter$MalformedMimeTypeException;
     invoke-virtual {v0}, Landroid/content/IntentFilter$MalformedMimeTypeException;->printStackTrace()V
 
     goto/16 :goto_0
 
-    .line 120
     .end local v0           #e:Landroid/content/IntentFilter$MalformedMimeTypeException;
     :catch_1
     move-exception v0
 
-    .line 121
     .restart local v0       #e:Landroid/content/IntentFilter$MalformedMimeTypeException;
     invoke-virtual {v0}, Landroid/content/IntentFilter$MalformedMimeTypeException;->printStackTrace()V
 
     goto :goto_1
 
-    .line 138
     .end local v0           #e:Landroid/content/IntentFilter$MalformedMimeTypeException;
     .restart local v2       #hasAccountEmail:Landroid/content/ComponentName;
     .restart local v3       #hasNoAccountEmail:Landroid/content/ComponentName;
@@ -434,13 +427,18 @@
     :cond_0
     :try_start_3
     new-instance v5, Lcom/android/server/pm/PreferredActivityBaidu;
+
     invoke-direct {v5, v1, v2}, Lcom/android/server/pm/PreferredActivityBaidu;-><init>(Landroid/content/IntentFilter;Landroid/content/ComponentName;)V
+
     invoke-virtual {p0, v5}, Lcom/android/server/pm/PreferredIntentResolverBaidu;->addFilter(Landroid/content/IntentFilter;)V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+
     goto :goto_2
+
     :catch_2
     move-exception v0
+
     .local v0, e:Ljava/lang/Exception;
     new-instance v5, Lcom/android/server/pm/PreferredActivityBaidu;
 
@@ -595,6 +593,45 @@
     return-void
 .end method
 
+.method protected bridge synthetic isPackageForFilter(Ljava/lang/String;Landroid/content/IntentFilter;)Z
+    .locals 1
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 33
+    check-cast p2, Lcom/android/server/pm/PreferredActivityBaidu;
+
+    .end local p2
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PreferredIntentResolverBaidu;->isPackageForFilter(Ljava/lang/String;Lcom/android/server/pm/PreferredActivityBaidu;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected isPackageForFilter(Ljava/lang/String;Lcom/android/server/pm/PreferredActivityBaidu;)Z
+    .locals 1
+    .parameter "packageName"
+    .parameter "info"
+
+    .prologue
+    .line 55
+    invoke-virtual {p2}, Lcom/android/server/pm/PreferredActivityBaidu;->getmComponentName()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method protected bridge synthetic newArray(I)[Landroid/content/IntentFilter;
     .locals 1
     .parameter "x0"
@@ -650,41 +687,4 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method protected bridge synthetic isPackageForFilter(Ljava/lang/String;Landroid/content/IntentFilter;)Z
-    .locals 1
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    check-cast p2, Lcom/android/server/pm/PreferredActivityBaidu;
-
-    .end local p2
-    invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PreferredIntentResolverBaidu;->isPackageForFilter(Ljava/lang/String;Lcom/android/server/pm/PreferredActivityBaidu;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method protected isPackageForFilter(Ljava/lang/String;Lcom/android/server/pm/PreferredActivityBaidu;)Z
-    .locals 1
-    .parameter "packageName"
-    .parameter "info"
-
-    .prologue
-    invoke-virtual {p2}, Lcom/android/server/pm/PreferredActivityBaidu;->getmComponentName()Landroid/content/ComponentName;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    return v0
 .end method

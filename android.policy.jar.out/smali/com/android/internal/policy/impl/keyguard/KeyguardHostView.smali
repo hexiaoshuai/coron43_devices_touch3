@@ -866,7 +866,7 @@
 
     move-result-object v4
 
-    const/high16 v5, 0x111
+    const/high16 v5, #android:bool@kg_enable_camera_default_widget#h
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
 
