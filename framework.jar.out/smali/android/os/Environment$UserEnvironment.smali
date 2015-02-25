@@ -412,16 +412,293 @@
     goto :goto_0
 .end method
 
-.method public getSecondaryExternalStorageDirectory()Ljava/io/File;
-    .locals 3
+.method getBaiduLogicExternalStorageAndroidDataDir()Ljava/io/File;
+    .locals 4
 
     .prologue
-    #calls: Landroid/os/Environment;->getSecondaryVolume()Landroid/os/storage/StorageVolume;
-    invoke-static {}, Landroid/os/Environment;->access$invoke-getSecondaryVolume-32cf99()Landroid/os/storage/StorageVolume;
+    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getBaiduLogicExternalStorageDirectory()Ljava/io/File;
 
     move-result-object v0
 
-    .local v0, SecondaryVolume:Landroid/os/storage/StorageVolume;
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    sget-object v3, Landroid/os/Environment;->DIRECTORY_ANDROID:Ljava/lang/String;
+
+    aput-object v3, v1, v2
+
+    const/4 v2, 0x1
+
+    const-string v3, "data"
+
+    aput-object v3, v1, v2
+
+    #calls: Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v0, v1}, Landroid/os/Environment;->access$000(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method getBaiduLogicExternalStorageAppCacheDirectory(Ljava/lang/String;)Ljava/io/File;
+    .locals 5
+    .parameter "packageName"
+
+    .prologue
+    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getBaiduLogicExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Landroid/os/Environment;->DIRECTORY_ANDROID:Ljava/lang/String;
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    const-string v4, "data"
+
+    aput-object v4, v2, v3
+
+    #calls: Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v1, v2}, Landroid/os/Environment;->access$000(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    .local v0, externalStorageAndroidData:Ljava/io/File;
+    new-instance v1, Ljava/io/File;
+
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    const-string v3, "cache"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v1
+.end method
+
+.method getBaiduLogicExternalStorageAppDataDirectory(Ljava/lang/String;)Ljava/io/File;
+    .locals 5
+    .parameter "packageName"
+
+    .prologue
+    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getBaiduLogicExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Landroid/os/Environment;->DIRECTORY_ANDROID:Ljava/lang/String;
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    const-string v4, "data"
+
+    aput-object v4, v2, v3
+
+    #calls: Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v1, v2}, Landroid/os/Environment;->access$000(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    .local v0, externalStorageAndroidData:Ljava/io/File;
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v1
+.end method
+
+.method getBaiduLogicExternalStorageAppFilesDirectory(Ljava/lang/String;)Ljava/io/File;
+    .locals 5
+    .parameter "packageName"
+
+    .prologue
+    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getBaiduLogicExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Landroid/os/Environment;->DIRECTORY_ANDROID:Ljava/lang/String;
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    const-string v4, "data"
+
+    aput-object v4, v2, v3
+
+    #calls: Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v1, v2}, Landroid/os/Environment;->access$000(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    .local v0, externalStorageAndroidData:Ljava/io/File;
+    new-instance v1, Ljava/io/File;
+
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    const-string v3, "files"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v1
+.end method
+
+.method getBaiduLogicExternalStorageAppMediaDirectory(Ljava/lang/String;)Ljava/io/File;
+    .locals 5
+    .parameter "packageName"
+
+    .prologue
+    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getBaiduLogicExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Landroid/os/Environment;->DIRECTORY_ANDROID:Ljava/lang/String;
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    const-string v4, "media"
+
+    aput-object v4, v2, v3
+
+    #calls: Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v1, v2}, Landroid/os/Environment;->access$000(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    .local v0, externalStorageAndroidMedia:Ljava/io/File;
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v1
+.end method
+
+.method getBaiduLogicExternalStorageAppObbDirectory(Ljava/lang/String;)Ljava/io/File;
+    .locals 5
+    .parameter "packageName"
+
+    .prologue
+    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getBaiduLogicExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    sget-object v4, Landroid/os/Environment;->DIRECTORY_ANDROID:Ljava/lang/String;
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    const-string v4, "obb"
+
+    aput-object v4, v2, v3
+
+    #calls: Landroid/os/Environment;->buildPath(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+    invoke-static {v1, v2}, Landroid/os/Environment;->access$000(Ljava/io/File;[Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v0
+
+    .local v0, externalStorageAndroidObb:Ljava/io/File;
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, v0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v1
+.end method
+
+.method getBaiduLogicExternalStorageDirectory()Ljava/io/File;
+    .locals 3
+
+    .prologue
+    invoke-static {}, Landroid/os/Environment;->getBaiduLogicPrimaryVolume()Landroid/os/storage/StorageVolume;
+
+    move-result-object v0
+
+    .local v0, primaryVolume:Landroid/os/storage/StorageVolume;
+    if-eqz v0, :cond_0
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-virtual {v0}, Landroid/os/storage/StorageVolume;->getPath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    :goto_0
+    return-object v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method getBaiduLogicExternalStoragePublicDirectory(Ljava/lang/String;)Ljava/io/File;
+    .locals 2
+    .parameter "type"
+
+    .prologue
+    new-instance v0, Ljava/io/File;
+
+    invoke-virtual {p0}, Landroid/os/Environment$UserEnvironment;->getBaiduLogicExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    return-object v0
+.end method
+
+.method getBaiduLogicSecondaryExternalStorageDirectory()Ljava/io/File;
+    .locals 3
+
+    .prologue
+    invoke-static {}, Landroid/os/Environment;->getBaiduLogicSecondaryVolume()Landroid/os/storage/StorageVolume;
+
+    move-result-object v0
+
+    .local v0, secondaryVolume:Landroid/os/storage/StorageVolume;
     if-eqz v0, :cond_0
 
     new-instance v1, Ljava/io/File;

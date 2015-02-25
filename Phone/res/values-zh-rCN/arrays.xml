@@ -2,10 +2,12 @@
 <resources>
     <string-array name="gsm_umts_network_preferences_choices">
         <item>4G Muti-mode</item>
+	<item>3G Muti-mode</item>
         <item>2G Muti-mode</item>
     </string-array>
     <string-array name="gsm_umts_network_preferences_values">
-        <item>10</item>
+        <item>22</item>
+	<item>18</item>
         <item>1</item>
     </string-array>
 </resources>
